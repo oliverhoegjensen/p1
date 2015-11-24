@@ -10,8 +10,11 @@ AudioPlayer kickSound;
 AudioPlayer snareSound;
 
 Slider slider;
-Sounds kick;
-Sounds snare;
+
+kickButtons k1;
+
+boolean b1 = false;
+boolean b2 = false;
 
 float tempoCount = 0;
 
@@ -19,45 +22,36 @@ void setup() {
   size(1280, 720);
   frameRate(60);
   
-
+  
   minim = new Minim(this);
   kickSound = minim.loadFile("kick.wav");
   snareSound = minim.loadFile("snare.wav");
 
   slider = new Slider(-2, 0, 2);
-  kick = new Sounds(0, 200);
-  snare = new Sounds(110, 200);
+  k1 = new kickButtons(width * 1/8);
 }
 
 void draw() {
   background(255);
   tempoCount++;
-  
-  slider.display();
-  slider.move();
 
-  kick.display();
-  snare.display();
+  k1.display();
 
-  if (tempoCount == 1) {
-    kickSound.rewind();
-    kickSound.play();
-    println("kick");
+  if (b1 == true) {
+    if (tempoCount == 1) {
+      kickSound.rewind();
+      kickSound.play();
+      println("kick");
+    }
   }
 
-  if (tempoCount == 30) {
-    snareSound.rewind();
-    snareSound.play();
-    println("snare");
-  }
-  
-  if (tempoCount == 60){
+  if (tempoCount == 60) {
     tempoCount = 0;
-    
   }
 }
 
-boolean collisionBetween(Slider rect1, Sounds rect2) {
-
-  return (rect1.left() < rect2.right() && rect2.left() < rect1.right() && rect1.top() < rect2.bottom() && rect2.top() < rect1.bottom());
+void mouseReleased() {
+  if (mouseX > k1._x && mouseX < k1._x + k1._width && mouseY > k1._y && mouseY < k1._y + k1._height) {
+    b1 = !b1;
+  }
 }
