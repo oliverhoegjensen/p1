@@ -25,20 +25,4 @@ class Slider {
       _x = 0;
     }
   }
-
-  float left() {
-    return _x;
-  }
-
-  float right() {
-    return _x+_width;
-  }
-
-  float top() {
-    return _y;
-  }
-
-  float bottom() {
-    return _y+_height;
-  }
 }
