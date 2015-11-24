@@ -32,7 +32,7 @@ void setup() {
 }
 
 void draw() {
-  background(150);
+  background(190);
   tempoCount++;
 
   k1.display();
