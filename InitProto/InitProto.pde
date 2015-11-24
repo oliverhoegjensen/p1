@@ -18,7 +18,6 @@ float tempoCount = 0;
 void setup() {
   size(1280, 720);
   frameRate(60);
-  background(255);
   
 
   minim = new Minim(this);
@@ -31,6 +30,7 @@ void setup() {
 }
 
 void draw() {
+  background(255);
   tempoCount++;
   
   slider.display();
