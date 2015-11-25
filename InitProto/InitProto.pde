@@ -41,13 +41,16 @@ void setup() {
     xPos+=40;
   }
 
+ 
+}
+
+void draw() {
+  
   for (int i = 0; i < kicks.length; i++) {
 
     kicks[i].display();
   }
-}
-
-void draw() {
+ 
   tempoCount++;
 
 /*
@@ -68,7 +71,12 @@ void mouseReleased() {
 
     if (mouseX > kicks[i]._x && mouseX < kicks[i]._x + kicks[i]._width && mouseY > kicks[i]._y && mouseY < kicks[i]._y+kicks[i]._height) {
       kicksPush[i] = !kicksPush[i];
+  
       println(kicksPush[i]);
+      
+      if(kicksPush[i] == true){
+       kicks[i]._colB = 255; 
+      } else { kicks[i]._colB = 0; }
     }
   }
 }
