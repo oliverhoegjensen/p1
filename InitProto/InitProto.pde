@@ -18,21 +18,46 @@ boolean b2 = false;
 
 float tempoCount = 0;
 
+int[] buttonX = new int[16];
+int[] buttonY = new int[16];
+int xPos = 320;
+int yPos = 60;
+int buttonDim = 35;
+
 void setup() {
   size(1280, 720);
   frameRate(60);
-  
-  
+
+
   minim = new Minim(this);
   kickSound = minim.loadFile("kick.wav");
   snareSound = minim.loadFile("snare.wav");
 
   slider = new Slider(-2, 0, 2);
   k1 = new kickButtons(width * 1/8);
+  
+  background(255);
+
+  for (int i = 0; i < 15; i++) {
+
+    buttonX[i] = xPos;
+    yPos=60;
+    xPos+=40;
+
+    for (int j = 0; j < 15; j++) {
+
+      buttonY[j] = yPos;
+
+      fill(0);
+      noStroke();
+      rect(xPos, yPos, buttonDim, buttonDim);  
+
+      yPos+=40;
+    }
+  }
 }
 
 void draw() {
-  background(249);
   tempoCount++;
 
   k1.display();
