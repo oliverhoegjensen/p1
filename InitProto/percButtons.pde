@@ -1,4 +1,4 @@
-class melodyButtons {
+class percButtons {
 
   int _x;
   int _y; 
@@ -8,23 +8,21 @@ class melodyButtons {
   int _colG;
   int _colB;
   int _tempoMark;
-  
-  AudioPlayer _tone;
 
-  melodyButtons() {
+  percButtons() {
     _colR = 0;
     _colG = 0;
     _colB = 0;
-    _y = 220;
+    _y = 180;
     _height = 35;
     _width = 35;
   }
 
   void play() {
     if (tempoCount == _tempoMark) { 
-      _tone.rewind();
-      _tone.play();
-      println("Melody");
+      percSound.rewind(); 
+      percSound.play();
+      println("Perc");
     }
   }
 
