@@ -1,4 +1,4 @@
-import ddf.minim.*; //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>//
+import ddf.minim.*; //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>//
 import ddf.minim.analysis.*;
 import ddf.minim.effects.*;
 import ddf.minim.signals.*;
@@ -8,9 +8,11 @@ import ddf.minim.ugens.*;
 Minim minim;
 AudioPlayer kickSound;
 AudioPlayer snareSound;
+AudioPlayer hatSound;
 
 boolean[] kicksPush = new boolean[16];
 boolean[] snaresPush = new boolean[16];
+boolean[] hatsPush = new boolean[16];
 
 float tempoCount = 0;
 
@@ -25,6 +27,7 @@ int tempoMark = 1;
 
 kickButtons[] kicks = new kickButtons[16];
 snareButtons[] snares = new snareButtons[16];
+hatButtons [] hats = new hatButtons[16];
 
 void setup() {
   size(1280, 720);
@@ -34,6 +37,7 @@ void setup() {
   minim = new Minim(this);
   kickSound = minim.loadFile("kick.wav");
   snareSound = minim.loadFile("snare.wav");
+  hatSound = minim.loadFile("hat.wav");
 
   background(255);
 
@@ -42,10 +46,14 @@ void setup() {
     kicks[i] = new kickButtons();
     kicks[i]._x = xPos;
     kicks[i]._tempoMark = tempoMark;
-    
+
     snares[i] = new snareButtons();
     snares[i]._x = xPos;
     snares[i]._tempoMark = tempoMark;
+
+    hats[i] = new hatButtons();
+    hats[i]._x = xPos;
+    hats[i]._tempoMark = tempoMark;
 
     tempoMark += 10;
     xPos+=40;
@@ -58,13 +66,18 @@ void draw() {
 
     kicks[i].display();
     snares[i].display();
-    
+    hats[i].display();
+
     if (kicksPush[i] == true) {
       kicks[i].play();
     }
-    
+
     if (snaresPush[i] == true) {
       snares[i].play();
+    }
+
+    if (hatsPush[i] == true) {
+      hats[i].play();
     }
   }
 
@@ -90,7 +103,7 @@ void mouseReleased() {
         kicks[i]._colB = 0;
       }
     }
-    
+
     if (mouseX > snares[i]._x && mouseX < snares[i]._x + snares[i]._width && mouseY > snares[i]._y && mouseY < snares[i]._y+snares[i]._height) {
       snaresPush[i] = !snaresPush[i];
 
@@ -100,6 +113,18 @@ void mouseReleased() {
         snares[i]._colR = 255;
       } else { 
         snares[i]._colR = 0;
+      }
+    }
+
+    if (mouseX > hats[i]._x && mouseX < hats[i]._x + hats[i]._width && mouseY > hats[i]._y && mouseY < hats[i]._y+hats[i]._height) {
+      hatsPush[i] = !hatsPush[i];
+
+      println(hatsPush[i]);
+
+      if (hatsPush[i] == true) {
+        hats[i]._colG = 255;
+      } else { 
+        hats[i]._colG = 0;
       }
     }
   }
