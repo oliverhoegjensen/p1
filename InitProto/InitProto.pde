@@ -201,7 +201,7 @@ void mouseReleased() {
       if (percsPush[i] == true) {
         percs[i]._colR = 100;
       } else { 
-        percs[i]._colG = 0;
+        percs[i]._colR = 0;
       }
     }
 
