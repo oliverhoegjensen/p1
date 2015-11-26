@@ -1,4 +1,4 @@
-import ddf.minim.*;
+import ddf.minim.*; //<>// //<>// //<>// //<>// //<>//
 import ddf.minim.analysis.*;
 import ddf.minim.effects.*;
 import ddf.minim.signals.*;
@@ -9,49 +9,73 @@ Minim minim;
 AudioPlayer kickSound;
 AudioPlayer snareSound;
 
-Slider slider;
-
-kickButtons k1;
-
-boolean b1 = false;
-boolean b2 = false;
+boolean[] kicksPush = new boolean[16];
 
 float tempoCount = 0;
+
+/*
+int[] buttonX = new int[16];
+ int[] buttonY = new int[16];
+ */
+
+int xPos = 320;
+int yPos = 60;
+int tempoMark = 1;
+
+kickButtons[] kicks = new kickButtons[16];
 
 void setup() {
   size(1280, 720);
   frameRate(60);
-  
-  
+
   minim = new Minim(this);
   kickSound = minim.loadFile("kick.wav");
   snareSound = minim.loadFile("snare.wav");
 
-  slider = new Slider(-2, 0, 2);
-  k1 = new kickButtons(width * 1/8);
+  background(255);
+
+  for (int i = 0; i < kicks.length; i++) {
+
+    kicks[i] = new kickButtons();
+    kicks[i]._x = xPos;
+    kicks[i]._tempoMark = tempoMark;
+
+    tempoMark += 10;
+    xPos+=40;
+  }
 }
 
 void draw() {
-  background(255);
-  tempoCount++;
 
-  k1.display();
+  for (int i = 0; i < kicks.length; i++) {
 
-  if (b1 == true) {
-    if (tempoCount == 1) {
-      kickSound.rewind();
-      kickSound.play();
-      println("kick");
+    kicks[i].display();
+    if (kicksPush[i] == true) {
+      kicks[i].play();
     }
   }
 
-  if (tempoCount == 60) {
+  tempoCount++;
+
+  if (tempoCount == 160) {
     tempoCount = 0;
   }
 }
 
 void mouseReleased() {
-  if (mouseX > k1._x && mouseX < k1._x + k1._width && mouseY > k1._y && mouseY < k1._y + k1._height) {
-    b1 = !b1;
+
+  for (int i = 0; i < kicks.length; i++) {
+
+    if (mouseX > kicks[i]._x && mouseX < kicks[i]._x + kicks[i]._width && mouseY > kicks[i]._y && mouseY < kicks[i]._y+kicks[i]._height) {
+      kicksPush[i] = !kicksPush[i];
+
+      println(kicksPush[i]);
+
+      if (kicksPush[i] == true) {
+        kicks[i]._colB = 255;
+      } else { 
+        kicks[i]._colB = 0;
+      }
+    }
   }
 }
