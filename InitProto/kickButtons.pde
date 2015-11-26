@@ -22,6 +22,7 @@ class kickButtons {
     if (tempoCount == _tempoMark) { 
       kickSound.rewind(); 
       kickSound.play();
+      println("Kick");
     }
   }
 

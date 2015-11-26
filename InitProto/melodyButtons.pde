@@ -1,4 +1,4 @@
-class hatButtons {
+class melodyButtons {
 
   int _x;
   int _y; 
@@ -8,21 +8,23 @@ class hatButtons {
   int _colG;
   int _colB;
   int _tempoMark;
+  
+  AudioPlayer _tone;
 
-  hatButtons() {
+  melodyButtons() {
     _colR = 0;
     _colG = 0;
     _colB = 0;
-    _y = 140;
+    _y = 180;
     _height = 35;
     _width = 35;
   }
 
   void play() {
     if (tempoCount == _tempoMark) { 
-      hatSound.rewind(); 
-      hatSound.play();
-      println("Hat");
+      _tone.rewind();
+      _tone.play();
+      println("Melody");
     }
   }
 
