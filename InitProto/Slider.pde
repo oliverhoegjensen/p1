@@ -1,28 +1,26 @@
 class Slider {
-  float _x;
-  float _y;
-  float _width;
-  float _height;
-  float _speed;
+  int _x;
+  int _y;
+  int _width;
+  int _height;
 
-  Slider(float x, float y, float speed) {
-    _x = x;
-    _y = y;
-    _width = 1;
+  Slider() {
+    _x = 320;
+    _y = 0;
+    _width = 2;
     _height = height;
-    _speed = speed;
   }
 
   void display() {
-    strokeWeight(3);
+    strokeWeight(1);
     fill(#11F5E0);
     rect(_x, _y, _width, _height);
   }
   
   void move(){
-    _x += _speed;
-    if(_x >= width){
-      _x = 0;
+    _x += 4;
+    if(_x >= 960){
+      _x = 320;
     }
   }
 }
