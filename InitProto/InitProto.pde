@@ -24,8 +24,6 @@ AudioPlayer g2;
 AudioPlayer a2;
 AudioPlayer c3;
 
-
-
 boolean[] kicksPush = new boolean[16];
 boolean[] snaresPush = new boolean[16];
 boolean[] hatsPush = new boolean[16];
@@ -46,19 +44,22 @@ percButtons[] percs = new percButtons[16];
 
 melodyButtons[][] melodies = new melodyButtons[16][11];
 
-
+Slider slider; 
 
 void setup() {
   size(1280, 720);
   frameRate(60);
   noStroke();
-
+  
+  
   minim = new Minim(this);
   kickSound = minim.loadFile("kick.wav");
   snareSound = minim.loadFile("snare.wav");
   hatSound = minim.loadFile("hat.wav");
   percSound = minim.loadFile("hat.wav");
 
+  slider = new Slider();
+  
   c1 = minim.loadFile("c1.wav");
   d1 = minim.loadFile("d1.wav");
   e1 = minim.loadFile("e1.wav");
@@ -72,6 +73,10 @@ void setup() {
   c3 = minim.loadFile("c3.wav");
 
   AudioPlayer[] melodySounds = {c3, a2, g2, e2, d2, c2, a1, g1, e1, d1, c1};
+<<<<<<< HEAD
+=======
+
+>>>>>>> master
 
   for (int i = 0; i < 16; i++) {
 
@@ -92,7 +97,12 @@ void setup() {
     percs[i]._tempoMark = tempoMark;
 
     for (int j = 0; j < 11; j++) {
+<<<<<<< HEAD
       
+=======
+
+
+>>>>>>> master
       melodies[i][j] = new melodyButtons();
       melodies[i][j]._x = xPos;
       melodies[i][j]._y = yPos;
@@ -110,7 +120,16 @@ void setup() {
 
 void draw() {
   
+<<<<<<< HEAD
   background(90);
+=======
+  tempoCount++;
+  background(255);
+  
+  slider.display();
+  slider.move();
+
+>>>>>>> master
 
   for (int i = 0; i < 16; i++) {
 
@@ -144,7 +163,6 @@ void draw() {
     }
   }
 
-  tempoCount++;
 
   if (tempoCount == 160) {
     tempoCount = 0;
