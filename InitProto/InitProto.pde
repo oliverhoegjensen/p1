@@ -10,24 +10,40 @@ AudioPlayer kickSound;
 AudioPlayer snareSound;
 AudioPlayer hatSound;
 
+// sax melody sounds
+AudioPlayer c1;
+AudioPlayer d1;
+AudioPlayer e1;
+AudioPlayer g1;
+AudioPlayer a1;
+AudioPlayer c2;
+AudioPlayer d2;
+AudioPlayer e2;
+AudioPlayer g2;
+AudioPlayer a2;
+AudioPlayer c3;
+
+AudioPlayer[] melodySounds = {c1, d1, e1, g1, a1, c2, d2, e2, g2, a2, c3};
+
 boolean[] kicksPush = new boolean[16];
 boolean[] snaresPush = new boolean[16];
 boolean[] hatsPush = new boolean[16];
 
+boolean[][] melodyPush = new boolean [16][11];
+
 float tempoCount = 0;
 
-/*
-int[] buttonX = new int[16];
- int[] buttonY = new int[16];
- */
-
 int xPos = 320;
-int yPos = 60;
+int yPos = 180;
 int tempoMark = 1;
 
 kickButtons[] kicks = new kickButtons[16];
 snareButtons[] snares = new snareButtons[16];
-hatButtons [] hats = new hatButtons[16];
+hatButtons[] hats = new hatButtons[16];
+
+melodyButtons[][] melodies = new melodyButtons[16][11];
+
+
 
 void setup() {
   size(1280, 720);
@@ -39,9 +55,21 @@ void setup() {
   snareSound = minim.loadFile("snare.wav");
   hatSound = minim.loadFile("hat.wav");
 
+  c1 = minim.loadFile("c1.wav");
+  d1 = minim.loadFile("d1.wav");
+  e1 = minim.loadFile("e1.wav");
+  g1 = minim.loadFile("g1.wav");
+  a1 = minim.loadFile("a1.wav");
+  c2 = minim.loadFile("c2.wav");
+  d2 = minim.loadFile("d2.wav");
+  e2 = minim.loadFile("e2.wav");
+  g2 = minim.loadFile("g2.wav");
+  a2 = minim.loadFile("a2.wav");
+  c3 = minim.loadFile("c3.wav");
+
   background(255);
 
-  for (int i = 0; i < kicks.length; i++) {
+  for (int i = 0; i < 16; i++) {
 
     kicks[i] = new kickButtons();
     kicks[i]._x = xPos;
@@ -55,18 +83,38 @@ void setup() {
     hats[i]._x = xPos;
     hats[i]._tempoMark = tempoMark;
 
+    for (int j = 0; j < 11; j++) {
+      
+      melodies[i][j] = new melodyButtons();
+      melodies[i][j]._x = xPos;
+      melodies[i][j]._y = yPos;
+      melodies[i][j]._tempoMark = tempoMark;
+      //melodies[i][j]._tone = melodySounds[j];
+
+      yPos += 40;
+    }
+
     tempoMark += 10;
     xPos+=40;
+    yPos=180;
   }
 }
 
 void draw() {
 
-  for (int i = 0; i < kicks.length; i++) {
+  for (int i = 0; i < 16; i++) {
 
     kicks[i].display();
     snares[i].display();
     hats[i].display();
+
+    for (int j = 0; j < 11; j++) {
+      melodies[i][j].display();
+
+      if (melodyPush[i][j] == true) {
+        melodies[i][j].play();
+      }
+    }
 
     if (kicksPush[i] == true) {
       kicks[i].play();
@@ -90,12 +138,11 @@ void draw() {
 
 void mouseReleased() {
 
-  for (int i = 0; i < kicks.length; i++) {
+  for (int i = 0; i < 16; i++) {
 
     if (mouseX > kicks[i]._x && mouseX < kicks[i]._x + kicks[i]._width && mouseY > kicks[i]._y && mouseY < kicks[i]._y+kicks[i]._height) {
       kicksPush[i] = !kicksPush[i];
 
-      println(kicksPush[i]);
 
       if (kicksPush[i] == true) {
         kicks[i]._colB = 255;
@@ -107,7 +154,6 @@ void mouseReleased() {
     if (mouseX > snares[i]._x && mouseX < snares[i]._x + snares[i]._width && mouseY > snares[i]._y && mouseY < snares[i]._y+snares[i]._height) {
       snaresPush[i] = !snaresPush[i];
 
-      println(snaresPush[i]);
 
       if (snaresPush[i] == true) {
         snares[i]._colR = 255;
@@ -119,12 +165,24 @@ void mouseReleased() {
     if (mouseX > hats[i]._x && mouseX < hats[i]._x + hats[i]._width && mouseY > hats[i]._y && mouseY < hats[i]._y+hats[i]._height) {
       hatsPush[i] = !hatsPush[i];
 
-      println(hatsPush[i]);
 
       if (hatsPush[i] == true) {
         hats[i]._colG = 255;
       } else { 
         hats[i]._colG = 0;
+      }
+    }
+
+    for (int j = 0; j < 11; j++) {
+      if (mouseX > melodies[i][j]._x && mouseX < melodies[i][j]._x + melodies[i][j]._width && mouseY > melodies[i][j]._y && mouseY < melodies[i][j]._y+melodies[i][j]._height) {
+        melodyPush[i][j] = !melodyPush[i][j];
+
+
+        if (melodyPush[i][j] == true) {
+          melodies[i][j]._colG = 255;
+        } else { 
+          melodies[i][j]._colG = 0;
+        }
       }
     }
   }
