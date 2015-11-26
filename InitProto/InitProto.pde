@@ -73,10 +73,6 @@ void setup() {
   c3 = minim.loadFile("c3.wav");
 
   AudioPlayer[] melodySounds = {c3, a2, g2, e2, d2, c2, a1, g1, e1, d1, c1};
-<<<<<<< HEAD
-=======
-
->>>>>>> master
 
   for (int i = 0; i < 16; i++) {
 
@@ -97,12 +93,7 @@ void setup() {
     percs[i]._tempoMark = tempoMark;
 
     for (int j = 0; j < 11; j++) {
-<<<<<<< HEAD
-      
-=======
 
-
->>>>>>> master
       melodies[i][j] = new melodyButtons();
       melodies[i][j]._x = xPos;
       melodies[i][j]._y = yPos;
@@ -120,16 +111,13 @@ void setup() {
 
 void draw() {
   
-<<<<<<< HEAD
   background(90);
-=======
+
   tempoCount++;
   background(255);
   
   slider.display();
   slider.move();
-
->>>>>>> master
 
   for (int i = 0; i < 16; i++) {
 
