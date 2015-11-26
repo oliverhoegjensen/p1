@@ -23,7 +23,7 @@ AudioPlayer g2;
 AudioPlayer a2;
 AudioPlayer c3;
 
-AudioPlayer[] melodySounds = {c1, d1, e1, g1, a1, c2, d2, e2, g2, a2, c3};
+
 
 boolean[] kicksPush = new boolean[16];
 boolean[] snaresPush = new boolean[16];
@@ -67,6 +67,8 @@ void setup() {
   a2 = minim.loadFile("a2.wav");
   c3 = minim.loadFile("c3.wav");
 
+  AudioPlayer[] melodySounds = {c1, d1, e1, g1, a1, c2, d2, e2, g2, a2, c3};
+  
   background(255);
 
   for (int i = 0; i < 16; i++) {
@@ -85,11 +87,12 @@ void setup() {
 
     for (int j = 0; j < 11; j++) {
       
+      
       melodies[i][j] = new melodyButtons();
       melodies[i][j]._x = xPos;
       melodies[i][j]._y = yPos;
       melodies[i][j]._tempoMark = tempoMark;
-      //melodies[i][j]._tone = melodySounds[j];
+      melodies[i][j]._tone = melodySounds[j];
 
       yPos += 40;
     }
@@ -179,7 +182,7 @@ void mouseReleased() {
 
 
         if (melodyPush[i][j] == true) {
-          melodies[i][j]._colG = 255;
+          melodies[i][j]._colG = 100;
         } else { 
           melodies[i][j]._colG = 0;
         }
