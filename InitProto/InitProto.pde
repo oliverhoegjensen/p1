@@ -67,7 +67,7 @@ void setup() {
   a2 = minim.loadFile("a2.wav");
   c3 = minim.loadFile("c3.wav");
 
-  AudioPlayer[] melodySounds = {c1, d1, e1, g1, a1, c2, d2, e2, g2, a2, c3};
+  AudioPlayer[] melodySounds = {c3, a2, g2, e2, d2, c2, a1, g1, e1, d1, c1};
   
   background(255);
 
