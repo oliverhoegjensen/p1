@@ -22,6 +22,7 @@ class snareButtons {
     if (tempoCount == _tempoMark) { 
       snareSound.rewind(); 
       snareSound.play();
+      println("Snare");
     }
   }
 
