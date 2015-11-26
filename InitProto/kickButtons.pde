@@ -1,5 +1,5 @@
 class kickButtons {
-  
+
   int _x;
   int _y; 
   int _width;
@@ -7,8 +7,7 @@ class kickButtons {
   int _colR;
   int _colG;
   int _colB;
-  
-  AudioPlayer _ap;
+  int _tempoMark;
 
   kickButtons() {
     _colR = 0;
@@ -17,13 +16,13 @@ class kickButtons {
     _y = 60;
     _height = 35;
     _width = 35;
-    _ap = kickSound;
   }
-  
-  void play(){
-    
-   kickSound.rewind(); 
-   kickSound.play(); 
+
+  void play() {
+    if (tempoCount == _tempoMark) { 
+      kickSound.rewind(); 
+      kickSound.play();
+    }
   }
 
   void display() {

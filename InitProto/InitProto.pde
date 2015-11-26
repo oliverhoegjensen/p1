@@ -20,6 +20,7 @@ int[] buttonX = new int[16];
 
 int xPos = 320;
 int yPos = 60;
+int tempoMark = 1;
 
 kickButtons[] kicks = new kickButtons[16];
 
@@ -37,30 +38,26 @@ void setup() {
 
     kicks[i] = new kickButtons();
     kicks[i]._x = xPos;
+    kicks[i]._tempoMark = tempoMark;
 
+    tempoMark += 10;
     xPos+=40;
   }
-
- 
 }
 
 void draw() {
-  
+
   for (int i = 0; i < kicks.length; i++) {
 
     kicks[i].display();
-  }
- 
-  tempoCount++;
-
-/*
-  if (b1 == true) {
-    if (tempoCount == 1) {
+    if (kicksPush[i] == true) {
+      kicks[i].play();
     }
   }
-  */
 
-  if (tempoCount == 60) {
+  tempoCount++;
+
+  if (tempoCount == 160) {
     tempoCount = 0;
   }
 }
@@ -71,12 +68,14 @@ void mouseReleased() {
 
     if (mouseX > kicks[i]._x && mouseX < kicks[i]._x + kicks[i]._width && mouseY > kicks[i]._y && mouseY < kicks[i]._y+kicks[i]._height) {
       kicksPush[i] = !kicksPush[i];
-  
+
       println(kicksPush[i]);
-      
-      if(kicksPush[i] == true){
-       kicks[i]._colB = 255; 
-      } else { kicks[i]._colB = 0; }
+
+      if (kicksPush[i] == true) {
+        kicks[i]._colB = 255;
+      } else { 
+        kicks[i]._colB = 0;
+      }
     }
   }
 }
