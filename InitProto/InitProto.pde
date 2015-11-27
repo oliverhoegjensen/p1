@@ -33,8 +33,8 @@ boolean[][] melodyPush = new boolean [16][11];
 
 float tempoCount = 0;
 
-int xPos = 320;
-int yPos = 220;
+int xPos = 323;
+int yPos = 223;
 int tempoMark = 1;
 
 kickButtons[] kicks = new kickButtons[16];
@@ -105,7 +105,7 @@ void setup() {
 
     tempoMark += 10;
     xPos+=40;
-    yPos=220;
+    yPos=223;
   }
 }
 

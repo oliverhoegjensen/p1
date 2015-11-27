@@ -13,7 +13,7 @@ class snareButtons {
     _colR = 0;
     _colG = 0;
     _colB = 0;
-    _y = 100;
+    _y = 103;
     _height = 35;
     _width = 35;
   }
