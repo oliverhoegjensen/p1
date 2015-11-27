@@ -5,7 +5,7 @@ class Slider {
   int _height;
 
   Slider() {
-    _x = 320;
+    _x = 323;
     _y = 0;
     _width = 2;
     _height = height;
@@ -19,8 +19,8 @@ class Slider {
   
   void move(){
     _x += 4;
-    if(_x >= 960){
-      _x = 320;
+    if(_x >= 963){
+      _x = 323;
     }
   }
 }
