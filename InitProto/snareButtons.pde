@@ -8,6 +8,7 @@ class snareButtons {
   int _colG;
   int _colB;
   int _tempoMark;
+  PImage _button;
 
   snareButtons() {
     _colR = 0;
@@ -16,6 +17,7 @@ class snareButtons {
     _y = 103;
     _height = 35;
     _width = 35;
+    _button = standardButton;
   }
 
   void play() {
@@ -27,7 +29,8 @@ class snareButtons {
   }
 
   void display() {
-    fill(_colR, _colG, _colB);
-    rect(_x, _y, _width, _height);
+    //fill(_colR, _colG, _colB);
+    //rect(_x, _y, _width, _height);
+    image(_button, _x, _y);
   }
 }

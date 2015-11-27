@@ -24,6 +24,14 @@ AudioPlayer g2;
 AudioPlayer a2;
 AudioPlayer c3;
 
+PImage standardButton;
+PImage colorButton1;
+PImage colorButton2;
+PImage colorButton3;
+PImage colorButton4;
+PImage colorButton5;
+PImage glowButton;
+
 boolean[] kicksPush = new boolean[16];
 boolean[] snaresPush = new boolean[16];
 boolean[] hatsPush = new boolean[16];
@@ -51,6 +59,13 @@ void setup() {
   frameRate(60);
   noStroke();
   
+  standardButton = loadImage("button_standard.png");
+  colorButton1 = loadImage("button_colored_1.png");
+  colorButton2 = loadImage("button_colored_2.png");
+  colorButton3 = loadImage("button_colored_3.png");
+  colorButton4 = loadImage("button_colored_4.png");
+  colorButton5 = loadImage("button_colored_5.png");
+  glowButton = loadImage("button_glow.png");
   
   minim = new Minim(this);
   kickSound = minim.loadFile("kick.wav");
@@ -159,6 +174,7 @@ void draw() {
 
 void mouseReleased() {
 
+  //eventuelt lav function til dette i class'en
   for (int i = 0; i < 16; i++) {
 
     if (mouseX > kicks[i]._x && mouseX < kicks[i]._x + kicks[i]._width && mouseY > kicks[i]._y && mouseY < kicks[i]._y+kicks[i]._height) {
@@ -166,9 +182,9 @@ void mouseReleased() {
 
 
       if (kicksPush[i] == true) {
-        kicks[i]._colB = 255;
+        kicks[i]._button = colorButton1;
       } else { 
-        kicks[i]._colB = 0;
+        kicks[i]._button = standardButton;
       }
     }
 
@@ -177,9 +193,9 @@ void mouseReleased() {
 
 
       if (snaresPush[i] == true) {
-        snares[i]._colR = 255;
+        snares[i]._button = colorButton2;
       } else { 
-        snares[i]._colR = 0;
+        snares[i]._button = standardButton;
       }
     }
 
@@ -188,9 +204,9 @@ void mouseReleased() {
 
 
       if (hatsPush[i] == true) {
-        hats[i]._colG = 255;
+        hats[i]._button = colorButton3;
       } else { 
-        hats[i]._colG = 0;
+        hats[i]._button = standardButton;
       }
     }
     
@@ -199,9 +215,9 @@ void mouseReleased() {
 
 
       if (percsPush[i] == true) {
-        percs[i]._colR = 100;
+        percs[i]._button = colorButton4;
       } else { 
-        percs[i]._colR = 0;
+        percs[i]._button = standardButton;
       }
     }
 
@@ -211,9 +227,9 @@ void mouseReleased() {
 
 
         if (melodyPush[i][j] == true) {
-          melodies[i][j]._colG = 100;
+          melodies[i][j]._button = colorButton5;
         } else { 
-          melodies[i][j]._colG = 0;
+          melodies[i][j]._button = standardButton;
         }
       }
     }
