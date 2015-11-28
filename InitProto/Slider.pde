@@ -6,9 +6,9 @@ class Slider {
 
   Slider() {
     _x = 323;
-    _y = 0;
+    _y = 63;
     _width = 2;
-    _height = height;
+    _height = 594;
   }
 
   void display() {
