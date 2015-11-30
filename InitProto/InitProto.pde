@@ -176,6 +176,9 @@ void draw() {
       kickVisualRadius = 500; 
     } 
   }
+  
+  slider.display();
+  slider.move();
 
   for (int i = 0; i < 16; i++) {
 
@@ -194,8 +197,6 @@ void draw() {
     tempoCount = 0;
   }
   
-  slider.display();
-  slider.move();
 }
 
 void mouseReleased() {

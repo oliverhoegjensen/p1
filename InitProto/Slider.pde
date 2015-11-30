@@ -7,7 +7,7 @@ class Slider {
   Slider() {
     _x = 323;
     _y = 63;
-    _width = 2;
+    _width = 3;
     _height = 594;
   }
 
