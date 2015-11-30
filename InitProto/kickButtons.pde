@@ -9,6 +9,7 @@ class kickButtons {
   int _colB;
   int _tempoMark;
   PImage _button;
+  boolean played;
 
   kickButtons() {
     _colR = 0;
@@ -26,11 +27,20 @@ class kickButtons {
       kickSound.play();
       println("Kick");
     }
+    
+    if (tempoCount >= _tempoMark && tempoCount <= _tempoMark + 10){
+     visual(); 
+    }
   }
 
   void display() {
-    //fill(_colR, _colG, _colB);
-    //rect(_x, _y, _width, _height);
     image(_button, _x, _y);
+  }
+
+  void visual() {
+    int r = 200;
+    noStroke();
+    fill(230);
+    ellipse(600, 400, r, r);
   }
 }
