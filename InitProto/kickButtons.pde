@@ -8,8 +8,9 @@ class kickButtons {
   int _colG;
   int _colB;
   int _tempoMark;
+  int visualTimer;
   PImage _button;
-  boolean played;
+  boolean kickVisual;
 
   kickButtons() {
     _colR = 0;
@@ -22,15 +23,17 @@ class kickButtons {
   }
 
   void play() {
-    if (tempoCount == _tempoMark) { 
+    if (tempoCount == _tempoMark) {
+      visualTimer = millis();
       kickSound.rewind(); 
       kickSound.play();
       println("Kick");
+      kickVisualRadius = 1;
     }
-    
-    if (tempoCount >= _tempoMark && tempoCount <= _tempoMark + 10){
-     visual(); 
-    }
+
+    if (millis() - visualTimer < 500) {
+      kickVisual=true;
+    } else { kickVisual = false; }
   }
 
   void display() {
@@ -38,9 +41,13 @@ class kickButtons {
   }
 
   void visual() {
-    int r = 200;
+    int r = 0;
+
     noStroke();
+
+    r+=400;
+
     fill(230);
-    ellipse(600, 400, r, r);
+    ellipse(width/2, height/2, r, r);
   }
 }

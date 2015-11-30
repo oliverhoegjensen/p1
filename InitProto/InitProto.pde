@@ -39,7 +39,11 @@ boolean[] percsPush = new boolean[16];
 
 boolean[][] melodyPush = new boolean [16][11];
 
-float tempoCount = 0;
+boolean kickVisual;
+
+int tempoCount = 0;
+
+int kickVisualRadius = 1;
 
 int xPos = 323;
 int yPos = 223;
@@ -126,8 +130,6 @@ void setup() {
 
 void draw() {
 
-  background(90);
-
   tempoCount++;
   background(255);
 
@@ -145,6 +147,9 @@ void draw() {
 
     if (kicksPush[i] == true) {
       kicks[i].play();
+      if (kicks[i].kickVisual == true) {
+        kickVisual = true;
+      } 
     }
 
     if (snaresPush[i] == true) {
@@ -158,6 +163,21 @@ void draw() {
     if (percsPush[i] == true) {
       percs[i].play();
     }
+  }
+
+  if (kickVisual == true) {
+
+    noStroke();
+    fill(230);
+    ellipse(width/2, height/2, kickVisualRadius, kickVisualRadius);
+
+    kickVisualRadius+=30;
+
+    if (kickVisualRadius >= 400) {
+      kickVisualRadius = 400; 
+    }
+    
+   
   }
 
   for (int i = 0; i < 16; i++) {
