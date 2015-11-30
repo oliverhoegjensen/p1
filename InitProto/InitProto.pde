@@ -43,11 +43,13 @@ boolean kickVisual;
 
 int tempoCount = 0;
 
-int kickVisualRadius = 1;
+int kickVisualRadius = 500;
+int kickVisualTimer;
 
 int xPos = 323;
 int yPos = 223;
 int tempoMark = 1;
+int kickAlpha = 255;
 
 kickButtons[] kicks = new kickButtons[16];
 snareButtons[] snares = new snareButtons[16];
@@ -131,10 +133,7 @@ void setup() {
 void draw() {
 
   tempoCount++;
-  background(255);
-
-  slider.display();
-  slider.move();
+  background(#FADCE3);
 
   for (int i = 0; i < 16; i++) {
 
@@ -164,20 +163,18 @@ void draw() {
       percs[i].play();
     }
   }
+  
+  noStroke();
+    fill(#FFC89D,kickAlpha);
+    ellipse(width/2, height/2, kickVisualRadius, kickVisualRadius);
 
   if (kickVisual == true) {
 
-    noStroke();
-    fill(230);
-    ellipse(width/2, height/2, kickVisualRadius, kickVisualRadius);
+    kickVisualRadius+=40;
 
-    kickVisualRadius+=30;
-
-    if (kickVisualRadius >= 400) {
-      kickVisualRadius = 400; 
-    }
-    
-   
+    if (kickVisualRadius >= 500) {
+      kickVisualRadius = 500; 
+    } 
   }
 
   for (int i = 0; i < 16; i++) {
@@ -196,6 +193,9 @@ void draw() {
   if (tempoCount == 160) {
     tempoCount = 0;
   }
+  
+  slider.display();
+  slider.move();
 }
 
 void mouseReleased() {

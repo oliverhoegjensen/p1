@@ -28,7 +28,7 @@ class kickButtons {
       kickSound.rewind(); 
       kickSound.play();
       println("Kick");
-      kickVisualRadius = 1;
+      kickVisualRadius = 0; 
     }
 
     if (millis() - visualTimer < 500) {
@@ -38,16 +38,5 @@ class kickButtons {
 
   void display() {
     image(_button, _x, _y);
-  }
-
-  void visual() {
-    int r = 0;
-
-    noStroke();
-
-    r+=400;
-
-    fill(230);
-    ellipse(width/2, height/2, r, r);
   }
 }
