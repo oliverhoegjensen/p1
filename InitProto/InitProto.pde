@@ -1,4 +1,4 @@
-import ddf.minim.*; //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>//
+import ddf.minim.*; //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>//
 import ddf.minim.analysis.*;
 import ddf.minim.effects.*;
 import ddf.minim.signals.*;
@@ -58,7 +58,7 @@ void setup() {
   size(1280, 720);
   frameRate(60);
   noStroke();
-  
+
   standardButton = loadImage("button_standard.png");
   colorButton1 = loadImage("button_colored_1.png");
   colorButton2 = loadImage("button_colored_2.png");
@@ -66,7 +66,7 @@ void setup() {
   colorButton4 = loadImage("button_colored_4.png");
   colorButton5 = loadImage("button_colored_5.png");
   glowButton = loadImage("button_glow.png");
-  
+
   minim = new Minim(this);
   kickSound = minim.loadFile("kick.wav");
   snareSound = minim.loadFile("snare.wav");
@@ -74,7 +74,7 @@ void setup() {
   percSound = minim.loadFile("hat.wav");
 
   slider = new Slider();
-  
+
   c1 = minim.loadFile("c1.wav");
   d1 = minim.loadFile("d1.wav");
   e1 = minim.loadFile("e1.wav");
@@ -102,7 +102,7 @@ void setup() {
     hats[i] = new hatButtons();
     hats[i]._x = xPos;
     hats[i]._tempoMark = tempoMark;
-    
+
     percs[i] = new percButtons();
     percs[i]._x = xPos;
     percs[i]._tempoMark = tempoMark;
@@ -125,24 +125,18 @@ void setup() {
 }
 
 void draw() {
-  
+
   background(90);
 
   tempoCount++;
   background(255);
-  
+
   slider.display();
   slider.move();
 
   for (int i = 0; i < 16; i++) {
 
-    kicks[i].display();
-    snares[i].display();
-    hats[i].display();
-    percs[i].display();
-
     for (int j = 0; j < 11; j++) {
-      melodies[i][j].display();
 
       if (melodyPush[i][j] == true) {
         melodies[i][j].play();
@@ -160,9 +154,21 @@ void draw() {
     if (hatsPush[i] == true) {
       hats[i].play();
     }
-    
+
     if (percsPush[i] == true) {
       percs[i].play();
+    }
+  }
+
+  for (int i = 0; i < 16; i++) {
+
+    kicks[i].display();
+    snares[i].display();
+    hats[i].display();
+    percs[i].display();
+
+    for (int j = 0; j < 11; j++) {
+      melodies[i][j].display();
     }
   }
 
@@ -209,7 +215,7 @@ void mouseReleased() {
         hats[i]._button = standardButton;
       }
     }
-    
+
     if (mouseX > percs[i]._x && mouseX < percs[i]._x + percs[i]._width && mouseY > percs[i]._y && mouseY < percs[i]._y+percs[i]._height) {
       percsPush[i] = !percsPush[i];
 
