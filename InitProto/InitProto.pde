@@ -1,4 +1,4 @@
-import ddf.minim.*; //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>//
+import ddf.minim.*; //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>//
 import ddf.minim.analysis.*;
 import ddf.minim.effects.*;
 import ddf.minim.signals.*;
@@ -58,12 +58,12 @@ boolean hatVisual;
 
 float snareVisualX = 45;
 
-int hatVisualY = 145;
-int hatVisual1Y = 225;
+int hatVisualY = 170;
+int hatVisual1Y = 200;
 boolean hatMover;
 boolean hat1Mover;
 
-int tempoCount = 0;
+float tempoCount = 0;
 
 int kickVisualRadius = 500;
 int kickVisualTimer;
@@ -100,6 +100,11 @@ void setup() {
   snareSound = minim.loadFile("snare.wav");
   hatSound = minim.loadFile("hat.wav");
   percSound = minim.loadFile("perc.wav");
+  
+  kickSound.setVolume(0.9);
+  snareSound.setVolume(0.7);
+  hatSound.setVolume(0.6);
+  percSound.setVolume(0.9);
 
   slider = new Slider();
 
@@ -167,7 +172,7 @@ void setup() {
 
 void draw() {
 
-  tempoCount++;
+  tempoCount+=0.5;
   background(#FADCE3);
 
   for (int i = 0; i < 16; i++) {
@@ -223,11 +228,11 @@ void draw() {
   // Start of snare animation //
   pushMatrix(); 
 
-  translate(300, 300); 
+  translate(240, 470); 
   rotate(radians(snareVisualX)); //Change
   fill(#ff9aa8, 150);
   rectMode(CENTER);
-  rect(0, 0, 300, 300); 
+  rect(0, 0, 190, 190); 
 
   if (snareVisual == true) {
     snareVisualX += 15;
@@ -246,36 +251,36 @@ void draw() {
  
   noStroke();
   fill(#f99aff, 150);
-  rectMode(CORNER);
-  rect(805,hatVisualY,300,30);
-  rect(805,hatVisual1Y,300,30);
+  
+  arc(1030,hatVisualY,300,50,PI,TWO_PI,CHORD);
+  arc(1030,hatVisual1Y, 300, 50,0, PI, CHORD);
 
   if (hatVisual == true) {
     
   if (hatMover == true){
   hatVisualY+=10;
-  } else { hatVisualY-=10; }
+  } else { hatVisualY-=1; }
   
-  if (hatVisualY >= 172){
-   hatVisualY = 172;
+  if (hatVisualY >= 185){
+   hatVisualY = 185;
    hatMover = false;
   }
   
-  if (hatVisualY <= 150){
-    hatVisualY = 150;
+  if (hatVisualY <= 170){
+    hatVisualY = 170;
   }
     
   if (hat1Mover == true){
   hatVisual1Y-=10;
-  } else { hatVisual1Y+=10; }
+  } else { hatVisual1Y+=1; }
   
-  if (hatVisual1Y <= 202){
-   hatVisual1Y = 202;
+  if (hatVisual1Y <= 185){
+   hatVisual1Y = 185;
    hat1Mover = false;
   }
   
-  if (hatVisual1Y >= 225){
-    hatVisual1Y = 225;
+  if (hatVisual1Y >= 200){
+    hatVisual1Y = 200;
   }
     
   }

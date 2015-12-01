@@ -13,13 +13,13 @@ class Slider {
 
   void display() {
     strokeWeight(1);
-    fill(#11F5E0);
+    fill(#11F5E0,150);
     rectMode(CENTER);
     rect(_x, _y, _width, _height);
   }
   
   void move(){
-    _x += 4;
+    _x += 2;
     if(_x >= 963){
       _x = 323;
     }
