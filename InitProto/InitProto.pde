@@ -40,6 +40,9 @@ boolean[] percsPush = new boolean[16];
 boolean[][] melodyPush = new boolean [16][11];
 
 boolean kickVisual;
+boolean snareVisual;
+
+float snareVisualX = 45;
 
 int tempoCount = 0;
 
@@ -146,13 +149,16 @@ void draw() {
 
     if (kicksPush[i] == true) {
       kicks[i].play();
-      if (kicks[i].kickVisual == true) {
+      if (kicks[i]._kickVisual == true) {
         kickVisual = true;
-      } 
+      }
     }
 
     if (snaresPush[i] == true) {
       snares[i].play();
+      if (snares[i]._snareVisual == true) {
+        snareVisual = true;
+      }
     }
 
     if (hatsPush[i] == true) {
@@ -163,20 +169,43 @@ void draw() {
       percs[i].play();
     }
   }
-  
+
+  // Start of kick animation //
   noStroke();
-    fill(#FFC89D,kickAlpha);
-    ellipse(width/2, height/2, kickVisualRadius, kickVisualRadius);
+  fill(#FFC89D, kickAlpha);
+  ellipse(width/2, height/2, kickVisualRadius, kickVisualRadius);
 
   if (kickVisual == true) {
 
     kickVisualRadius+=40;
 
     if (kickVisualRadius >= 500) {
-      kickVisualRadius = 500; 
-    } 
+      kickVisualRadius = 500;
+    }
   }
-  
+  // End of kick animation //
+
+  // Start of snare animation //
+  pushMatrix(); 
+
+  translate(300, 300); 
+  rotate(radians(snareVisualX)); //Change
+  fill(255, 50, 0,120);
+  rectMode(CENTER);
+  rect(0,0,300,300); 
+
+  if (snareVisual == true) {
+    snareVisualX += 15;
+    snareVisualX *= 0.95;
+    
+    if(snareVisualX >= 225){
+     snareVisualX = 225; 
+    }
+  } println(snareVisualX);
+
+  popMatrix();
+  // End of snare animation //
+
   slider.display();
   slider.move();
 
@@ -196,7 +225,6 @@ void draw() {
   if (tempoCount == 160) {
     tempoCount = 0;
   }
-  
 }
 
 void mouseReleased() {

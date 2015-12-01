@@ -8,7 +8,9 @@ class snareButtons {
   int _colG;
   int _colB;
   int _tempoMark;
+  int _visualTimer;
   PImage _button;
+  boolean _snareVisual;
 
   snareButtons() {
     _colR = 0;
@@ -22,10 +24,16 @@ class snareButtons {
 
   void play() {
     if (tempoCount == _tempoMark) { 
+      snareVisualX = 45;
+      _visualTimer = millis();
       snareSound.rewind(); 
       snareSound.play();
       println("Snare");
     }
+    
+    if (millis() - _visualTimer < 500) {
+      _snareVisual=true;
+    } else { _snareVisual = false; }
   }
 
   void display() {
