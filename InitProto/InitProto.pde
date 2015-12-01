@@ -1,4 +1,4 @@
-import ddf.minim.*;  //<>//
+import ddf.minim.*;  //<>// //<>//
 import ddf.minim.analysis.*;
 import ddf.minim.effects.*;
 import ddf.minim.signals.*;
@@ -55,8 +55,17 @@ boolean[][] melodyPush = new boolean [16][11];
 boolean kickVisual;
 boolean snareVisual;
 boolean hatVisual;
+boolean percVisual;
 
 float snareVisualX = 45;
+
+boolean percVisualMove;
+
+float [] percVisualX = new float [10];
+float [] percVisualY = new float [10];
+float [] percVisualR = new float [10];
+float [] PercVisualSpeedX = new float [10];
+float [] PercVisualSpeedY = new float [10];
 
 int hatVisualY = 170;
 int hatVisual1Y = 200;
@@ -102,11 +111,6 @@ void setup() {
   snareSound = minim.loadFile("snare.wav");
   hatSound = minim.loadFile("hat.wav");
   percSound = minim.loadFile("perc.wav");
-
-  kickSound.setVolume(0.9);
-  snareSound.setVolume(0.7);
-  hatSound.setVolume(0.6);
-  percSound.setVolume(0.9);
 
   slider = new Slider();
 
@@ -164,7 +168,7 @@ void setup() {
       melodies[i][j]._tone = melodySounds[j];
       
       melodies[i][j]._tint = melodyTint;
-      melodyTint-=5;
+      melodyTint-=20;
 
       yPos += 40;
     }
@@ -178,7 +182,7 @@ void setup() {
 
 void draw() {
 
-  background(#DCF8FA);
+  background(#ffc7cf);
   tempoCount+=0.5;
 
   for (int i = 0; i < 16; i++) {
@@ -213,12 +217,14 @@ void draw() {
 
     if (percsPush[i] == true) {
       percs[i].play();
+      if (percs[i]._percVisual == true) {
+        percVisual = true;
+      }
     }
   }
 
   // Start of kick animation //
-  noStroke();
-  fill(#e88085, 255);
+  fill(#ff94a7, 255);
   ellipse(width/2, height/2, kickVisualRadius, kickVisualRadius);
 
   if (kickVisual == true) {
@@ -236,7 +242,7 @@ void draw() {
 
   translate(240, 470); 
   rotate(radians(snareVisualX)); //Change
-  fill(#749396, 255);
+  fill(#ffcba2, 255);
   rectMode(CENTER);
   rect(0, 0, 190, 190); 
 
@@ -255,11 +261,12 @@ void draw() {
 
   // Start of hat animation // 
 
-  noStroke();
-  fill(#24324f, 255);
+  fill(#f8a393, 255);
 
-  arc(1030, hatVisualY, 300, 50, PI, TWO_PI, CHORD);
-  arc(1030, hatVisual1Y, 300, 50, 0, PI, CHORD);
+  //arc(1030, hatVisualY, 300, 50, PI, TWO_PI, CHORD);
+  //arc(1030, hatVisual1Y, 300, 50, 0, PI, CHORD);
+  rect(1050,hatVisualY-20,300,50);
+  rect(1050,hatVisual1Y+20,300,50);
 
   if (hatVisual == true) {
 
@@ -295,6 +302,12 @@ void draw() {
   }
 
   // End of hat animation //
+  
+  // Start of perc animation //
+  
+  
+  
+  // End of perc animation //
 
   slider.display();
   slider.move();

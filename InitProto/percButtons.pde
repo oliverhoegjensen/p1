@@ -8,7 +8,9 @@ class percButtons {
   int _colG;
   int _colB;
   int _tempoMark;
+  int _visualTimer;
   PImage _button;
+  boolean _percVisual;
 
   percButtons() {
     _colR = 0;
@@ -22,10 +24,15 @@ class percButtons {
 
   void play() {
     if (tempoCount == _tempoMark) { 
+      _visualTimer = millis();
       percSound.rewind(); 
       percSound.play();
       println("Perc");
     }
+    
+    if (millis() - _visualTimer < 500) {
+      _percVisual=true;
+    } else { _percVisual = false; }
   }
 
   void display() {

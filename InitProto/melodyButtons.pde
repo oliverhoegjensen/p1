@@ -39,7 +39,7 @@ class melodyButtons {
   void display() {
     
     if (_colorChange == true){
-      tint(_tint,150);
+      tint(_tint,255,255,255);
     }
     
     image(_button, _x, _y);
