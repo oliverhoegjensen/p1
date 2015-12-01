@@ -1,4 +1,4 @@
-import ddf.minim.*; //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>//
+import ddf.minim.*; //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>//
 import ddf.minim.analysis.*;
 import ddf.minim.effects.*;
 import ddf.minim.signals.*;
@@ -58,8 +58,8 @@ boolean hatVisual;
 
 float snareVisualX = 45;
 
-int hatVisualY = 0;
-int hatVisual1Y = 690;
+int hatVisualY = 145;
+int hatVisual1Y = 225;
 boolean hatMover;
 boolean hat1Mover;
 
@@ -247,35 +247,35 @@ void draw() {
   noStroke();
   fill(#f99aff, 150);
   rectMode(CORNER);
-  rect(0,hatVisualY,width,30);
-  rect(0,hatVisual1Y,width,30);
+  rect(805,hatVisualY,300,30);
+  rect(805,hatVisual1Y,300,30);
 
   if (hatVisual == true) {
     
   if (hatMover == true){
-  hatVisualY+=50;
-  } else { hatVisualY-=50; }
+  hatVisualY+=10;
+  } else { hatVisualY-=10; }
   
-  if (hatVisualY >= height/2-30){
-   hatVisualY = height/2-30;
+  if (hatVisualY >= 172){
+   hatVisualY = 172;
    hatMover = false;
   }
   
-  if (hatVisualY <= 0){
-    hatVisualY = 0;
+  if (hatVisualY <= 150){
+    hatVisualY = 150;
   }
     
   if (hat1Mover == true){
-  hatVisual1Y-=50;
-  } else { hatVisual1Y+=50; }
+  hatVisual1Y-=10;
+  } else { hatVisual1Y+=10; }
   
-  if (hatVisual1Y <= height/2){
-   hatVisual1Y = height/2;
+  if (hatVisual1Y <= 202){
+   hatVisual1Y = 202;
    hat1Mover = false;
   }
   
-  if (hatVisual1Y >= height-30){
-    hatVisual1Y = height-30;
+  if (hatVisual1Y >= 225){
+    hatVisual1Y = 225;
   }
     
   }
