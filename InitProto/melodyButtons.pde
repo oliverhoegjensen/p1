@@ -8,7 +8,9 @@ class melodyButtons {
   int _colG;
   int _colB;
   int _tempoMark;
+  int _tint;
   PImage _button;
+  boolean _colorChange;
   
   AudioPlayer _tone;
 
@@ -20,19 +22,28 @@ class melodyButtons {
     _height = 35;
     _width = 35;
     _button = standardButton;
+    _tint = 255;
   }
 
   void play() {
+    _colorChange = true;
     if (tempoCount == _tempoMark) { 
       _tone.rewind();
       _tone.play();
       println("Melody");
+ 
     }
+    
   }
 
   void display() {
-    //fill(_colR, _colG, _colB);
-    //rect(_x, _y, _width, _height);
+    
+    if (_colorChange == true){
+      tint(_tint,150);
+    }
+    
     image(_button, _x, _y);
+    tint(255,255);
+    
   }
 }

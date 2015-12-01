@@ -68,6 +68,8 @@ float tempoCount = 0;
 int kickVisualRadius = 500;
 int kickVisualTimer;
 
+int melodyTint = 255;
+
 int xPos = 323;
 int yPos = 63;
 int tempoMark = 1;
@@ -100,7 +102,7 @@ void setup() {
   snareSound = minim.loadFile("snare.wav");
   hatSound = minim.loadFile("hat.wav");
   percSound = minim.loadFile("perc.wav");
-  
+
   kickSound.setVolume(0.9);
   snareSound.setVolume(0.7);
   hatSound.setVolume(0.6);
@@ -160,6 +162,9 @@ void setup() {
       melodies[i][j]._y = yPos;
       melodies[i][j]._tempoMark = tempoMark;
       melodies[i][j]._tone = melodySounds[j];
+      
+      melodies[i][j]._tint = melodyTint;
+      melodyTint-=5;
 
       yPos += 40;
     }
@@ -167,12 +172,13 @@ void setup() {
     tempoMark += 10;
     xPos+=40;
     yPos=63;
+    melodyTint = 255;
   }
 }
 
 void draw() {
 
-  background(#FADCE3);
+  background(#DCF8FA);
   tempoCount+=0.5;
 
   for (int i = 0; i < 16; i++) {
@@ -212,7 +218,7 @@ void draw() {
 
   // Start of kick animation //
   noStroke();
-  fill(#fff19a, 150);
+  fill(#e88085, 255);
   ellipse(width/2, height/2, kickVisualRadius, kickVisualRadius);
 
   if (kickVisual == true) {
@@ -230,7 +236,7 @@ void draw() {
 
   translate(240, 470); 
   rotate(radians(snareVisualX)); //Change
-  fill(#ff9aa8, 150);
+  fill(#749396, 255);
   rectMode(CENTER);
   rect(0, 0, 190, 190); 
 
@@ -246,51 +252,53 @@ void draw() {
 
   popMatrix();
   // End of snare animation //
-  
+
   // Start of hat animation // 
- 
+
   noStroke();
-  fill(#f99aff, 150);
-  
-  arc(1030,hatVisualY,300,50,PI,TWO_PI,CHORD);
-  arc(1030,hatVisual1Y, 300, 50,0, PI, CHORD);
+  fill(#24324f, 255);
+
+  arc(1030, hatVisualY, 300, 50, PI, TWO_PI, CHORD);
+  arc(1030, hatVisual1Y, 300, 50, 0, PI, CHORD);
 
   if (hatVisual == true) {
-    
-  if (hatMover == true){
-  hatVisualY+=10;
-  } else { hatVisualY-=1; }
-  
-  if (hatVisualY >= 185){
-   hatVisualY = 185;
-   hatMover = false;
+
+    if (hatMover == true) {
+      hatVisualY+=10;
+    } else { 
+      hatVisualY-=1;
+    }
+
+    if (hatVisualY >= 185) {
+      hatVisualY = 185;
+      hatMover = false;
+    }
+
+    if (hatVisualY <= 170) {
+      hatVisualY = 170;
+    }
+
+    if (hat1Mover == true) {
+      hatVisual1Y-=10;
+    } else { 
+      hatVisual1Y+=1;
+    }
+
+    if (hatVisual1Y <= 185) {
+      hatVisual1Y = 185;
+      hat1Mover = false;
+    }
+
+    if (hatVisual1Y >= 200) {
+      hatVisual1Y = 200;
+    }
   }
-  
-  if (hatVisualY <= 170){
-    hatVisualY = 170;
-  }
-    
-  if (hat1Mover == true){
-  hatVisual1Y-=10;
-  } else { hatVisual1Y+=1; }
-  
-  if (hatVisual1Y <= 185){
-   hatVisual1Y = 185;
-   hat1Mover = false;
-  }
-  
-  if (hatVisual1Y >= 200){
-    hatVisual1Y = 200;
-  }
-    
-  }
-  
+
   // End of hat animation //
 
   slider.display();
   slider.move();
-  
-  tint(255,150);
+
 
   for (int i = 0; i < 16; i++) {
 
@@ -303,8 +311,6 @@ void draw() {
       melodies[i][j].display();
     }
   }
-
-  tint(255, 255);
 
   if (tempoCount == 160) {
     tempoCount = 0;
@@ -369,6 +375,7 @@ void mouseReleased() {
           melodies[i][j]._button = colorButton5;
         } else { 
           melodies[i][j]._button = standardButton;
+          melodies[i][j]._colorChange = false;
         }
       }
     }
