@@ -172,8 +172,8 @@ void setup() {
 
 void draw() {
 
-  tempoCount+=0.5;
   background(#FADCE3);
+  tempoCount+=0.5;
 
   for (int i = 0; i < 16; i++) {
 
