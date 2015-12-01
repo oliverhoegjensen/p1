@@ -16,7 +16,7 @@ class hatButtons {
     _colR = 0;
     _colG = 0;
     _colB = 0;
-    _y = 143;
+    _y = 583;
     _height = 35;
     _width = 35;
     _button = standardButton;

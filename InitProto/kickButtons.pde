@@ -16,7 +16,7 @@ class kickButtons {
     _colR = 0;
     _colG = 0;
     _colB = 0;
-    _y = 63;
+    _y = 503;
     _height = 35;
     _width = 35;
     _button = standardButton;

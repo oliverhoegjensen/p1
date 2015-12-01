@@ -14,7 +14,7 @@ class percButtons {
     _colR = 0;
     _colG = 0;
     _colB = 0;
-    _y = 183;
+    _y = 623;
     _height = 35;
     _width = 35;
     _button = standardButton;

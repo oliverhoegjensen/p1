@@ -16,7 +16,7 @@ class melodyButtons {
     _colR = 0;
     _colG = 0;
     _colB = 0;
-    _y = 223;
+    _y = 63;
     _height = 35;
     _width = 35;
     _button = standardButton;

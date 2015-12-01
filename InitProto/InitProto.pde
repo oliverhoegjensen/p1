@@ -1,4 +1,4 @@
-import ddf.minim.*; //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>//
+import ddf.minim.*; //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>//
 import ddf.minim.analysis.*;
 import ddf.minim.effects.*;
 import ddf.minim.signals.*;
@@ -69,7 +69,7 @@ int kickVisualRadius = 500;
 int kickVisualTimer;
 
 int xPos = 323;
-int yPos = 223;
+int yPos = 63;
 int tempoMark = 1;
 int kickAlpha = 255;
 
@@ -128,7 +128,7 @@ void setup() {
   p11 = minim.loadFile("p11.wav");
 
 
-  AudioPlayer[] melodySounds = {p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11};
+  AudioPlayer[] melodySounds = {p11, p10, p9, p8, p7, p6, p5, p4, p3, p2, p1};
 
   for (int i = 0; i < 16; i++) {
 
@@ -161,7 +161,7 @@ void setup() {
 
     tempoMark += 10;
     xPos+=40;
-    yPos=223;
+    yPos=63;
   }
 }
 
