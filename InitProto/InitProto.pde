@@ -54,11 +54,7 @@ boolean[][] melodyPush = new boolean [16][11];
 
 boolean kickVisual;
 boolean snareVisual;
-<<<<<<< HEAD
-boolean soundLibrary = false;
-=======
 boolean hatVisual;
->>>>>>> origin/master
 
 float snareVisualX = 45;
 
@@ -158,7 +154,7 @@ void setup() {
       melodies[i][j]._x = xPos;
       melodies[i][j]._y = yPos;
       melodies[i][j]._tempoMark = tempoMark;
-      melodies[i][j]._tone = melodySounds2[j];
+      melodies[i][j]._tone = melodySounds[j];
 
       yPos += 40;
     }
