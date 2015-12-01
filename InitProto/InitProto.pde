@@ -77,7 +77,7 @@ void setup() {
   kickSound = minim.loadFile("kick.wav");
   snareSound = minim.loadFile("snare.wav");
   hatSound = minim.loadFile("hat.wav");
-  percSound = minim.loadFile("hat.wav");
+  percSound = minim.loadFile("perc.wav");
 
   slider = new Slider();
 
