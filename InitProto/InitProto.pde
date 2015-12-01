@@ -41,8 +41,14 @@ boolean[][] melodyPush = new boolean [16][11];
 
 boolean kickVisual;
 boolean snareVisual;
+boolean hatVisual;
 
 float snareVisualX = 45;
+
+int hatVisualY = 0;
+int hatVisual1Y = 690;
+boolean hatMover;
+boolean hat1Mover;
 
 int tempoCount = 0;
 
@@ -64,7 +70,7 @@ melodyButtons[][] melodies = new melodyButtons[16][11];
 Slider slider; 
 
 void setup() {
-  size(1280, 720);
+  size(1280, 720, P2D);
   frameRate(60);
   noStroke();
 
@@ -163,6 +169,9 @@ void draw() {
 
     if (hatsPush[i] == true) {
       hats[i].play();
+      if (hats[i]._hatVisual == true) {
+        hatVisual = true;
+      }
     }
 
     if (percsPush[i] == true) {
@@ -172,7 +181,7 @@ void draw() {
 
   // Start of kick animation //
   noStroke();
-  fill(#FFC89D, kickAlpha);
+  fill(#fff19a, 150);
   ellipse(width/2, height/2, kickVisualRadius, kickVisualRadius);
 
   if (kickVisual == true) {
@@ -190,24 +199,70 @@ void draw() {
 
   translate(300, 300); 
   rotate(radians(snareVisualX)); //Change
-  fill(255, 50, 0,120);
+  fill(#ff9aa8, 150);
   rectMode(CENTER);
-  rect(0,0,300,300); 
+  rect(0, 0, 300, 300); 
 
   if (snareVisual == true) {
     snareVisualX += 15;
-    snareVisualX *= 0.95;
-    
-    if(snareVisualX >= 225){
-     snareVisualX = 225; 
+    snareVisualX *= 0.965;
+
+    if (snareVisualX >= 405) {
+      snareVisualX = 405;
     }
-  } println(snareVisualX);
+  } 
 
   popMatrix();
   // End of snare animation //
+  
+  // Start of hat animation // 
+ 
+  noStroke();
+  fill(#f99aff, 150);
+  rectMode(CORNER);
+  rect(0,hatVisualY,width,30);
+  rect(0,hatVisual1Y,width,30);
+
+  if (hatVisual == true) {
+    
+  ///////// Hat ////////
+  if (hatMover == true){
+  hatVisualY+=50;
+  } else { hatVisualY-=50; }
+  
+  if (hatVisualY >= height/2-30){
+   hatVisualY = height/2-30;
+   hatMover = false;
+  }
+  
+  if (hatVisualY <= 0){
+    hatVisualY = 0;
+  }
+  //////////////////////
+  
+  ///////// Hat1 ///////
+  
+  if (hat1Mover == true){
+  hatVisual1Y-=50;
+  } else { hatVisual1Y+=50; }
+  
+  if (hatVisual1Y <= height/2){
+   hatVisual1Y = height/2;
+   hat1Mover = false;
+  }
+  
+  if (hatVisual1Y >= height-30){
+    hatVisual1Y = height-30;
+  }
+    
+  }
+  
+  // End of hat animation //
 
   slider.display();
   slider.move();
+  
+  tint(255,150);
 
   for (int i = 0; i < 16; i++) {
 
@@ -221,6 +276,7 @@ void draw() {
     }
   }
 
+  tint(255, 255);
 
   if (tempoCount == 160) {
     tempoCount = 0;

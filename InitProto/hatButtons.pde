@@ -8,7 +8,9 @@ class hatButtons {
   int _colG;
   int _colB;
   int _tempoMark;
+  int _visualTimer;
   PImage _button;
+  boolean _hatVisual;
 
   hatButtons() {
     _colR = 0;
@@ -22,10 +24,17 @@ class hatButtons {
 
   void play() {
     if (tempoCount == _tempoMark) { 
+      _visualTimer = millis();
       hatSound.rewind(); 
       hatSound.play();
+      hatMover = true;
+      hat1Mover = true;
       println("Hat");
     }
+    
+    if (millis() - _visualTimer < 500) {
+      _hatVisual=true;
+    } else { _hatVisual = false; }
   }
 
   void display() {

@@ -6,7 +6,7 @@ class Slider {
 
   Slider() {
     _x = 323;
-    _y = 63;
+    _y = 361;
     _width = 3;
     _height = 594;
   }
@@ -14,6 +14,7 @@ class Slider {
   void display() {
     strokeWeight(1);
     fill(#11F5E0);
+    rectMode(CENTER);
     rect(_x, _y, _width, _height);
   }
   
