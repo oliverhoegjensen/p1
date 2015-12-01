@@ -24,6 +24,19 @@ AudioPlayer g2;
 AudioPlayer a2;
 AudioPlayer c3;
 
+AudioPlayer p1;
+AudioPlayer p2;
+AudioPlayer p3;
+AudioPlayer p4;
+AudioPlayer p5;
+AudioPlayer p6;
+AudioPlayer p7;
+AudioPlayer p8;
+AudioPlayer p9;
+AudioPlayer p10;
+AudioPlayer p11;
+
+
 PImage standardButton;
 PImage colorButton1;
 PImage colorButton2;
@@ -41,6 +54,7 @@ boolean[][] melodyPush = new boolean [16][11];
 
 boolean kickVisual;
 boolean snareVisual;
+boolean soundLibrary = false;
 
 float snareVisualX = 45;
 
@@ -96,7 +110,20 @@ void setup() {
   a2 = minim.loadFile("a2.wav");
   c3 = minim.loadFile("c3.wav");
 
-  AudioPlayer[] melodySounds = {c3, a2, g2, e2, d2, c2, a1, g1, e1, d1, c1};
+  p1 = minim.loadFile("p1.wav");
+  p2 = minim.loadFile("p2.wav");
+  p3 = minim.loadFile("p3.wav");
+  p4 = minim.loadFile("p4.wav");
+  p5 = minim.loadFile("p5.wav");
+  p6 = minim.loadFile("p6.wav");
+  p7 = minim.loadFile("p7.wav");
+  p8 = minim.loadFile("p8.wav");
+  p9 = minim.loadFile("p9.wav");
+  p10 = minim.loadFile("p10.wav");
+  p11 = minim.loadFile("p11.wav");
+
+
+  AudioPlayer[] melodySounds = {p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11};
 
   for (int i = 0; i < 16; i++) {
 
@@ -122,7 +149,7 @@ void setup() {
       melodies[i][j]._x = xPos;
       melodies[i][j]._y = yPos;
       melodies[i][j]._tempoMark = tempoMark;
-      melodies[i][j]._tone = melodySounds[j];
+      melodies[i][j]._tone = melodySounds2[j];
 
       yPos += 40;
     }
@@ -190,18 +217,19 @@ void draw() {
 
   translate(300, 300); 
   rotate(radians(snareVisualX)); //Change
-  fill(255, 50, 0,120);
+  fill(255, 50, 0, 120);
   rectMode(CENTER);
-  rect(0,0,300,300); 
+  rect(0, 0, 300, 300); 
 
   if (snareVisual == true) {
     snareVisualX += 15;
     snareVisualX *= 0.95;
-    
-    if(snareVisualX >= 225){
-     snareVisualX = 225; 
+
+    if (snareVisualX >= 225) {
+      snareVisualX = 225;
     }
-  } println(snareVisualX);
+  } 
+  println(snareVisualX);
 
   popMatrix();
   // End of snare animation //
