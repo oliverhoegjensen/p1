@@ -16,7 +16,7 @@ class snareButtons {
     _colR = 0;
     _colG = 0;
     _colB = 0;
-    _y = 543;
+    _y = 563;
     _height = 35;
     _width = 35;
     _button = standardButton;
@@ -37,8 +37,7 @@ class snareButtons {
   }
 
   void display() {
-    //fill(_colR, _colG, _colB);
-    //rect(_x, _y, _width, _height);
+    tint(255,180);
     image(_button, _x, _y);
   }
 }

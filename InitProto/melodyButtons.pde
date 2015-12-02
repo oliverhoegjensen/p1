@@ -9,6 +9,7 @@ class melodyButtons {
   int _colB;
   int _tempoMark;
   int _tint;
+  int _tint1;
   PImage _button;
   boolean _colorChange;
   
@@ -39,7 +40,7 @@ class melodyButtons {
   void display() {
     
     if (_colorChange == true){
-      tint(_tint,255,255,255);
+      tint(_tint,_tint1,255,180);
     }
     
     image(_button, _x, _y);

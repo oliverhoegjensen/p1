@@ -68,20 +68,21 @@ float [] percVisualR = new float [10];
 float [] PercVisualSpeedX = new float [10];
 float [] PercVisualSpeedY = new float [10];
 
-int hatVisualY = 170;
-int hatVisual1Y = 200;
+int hatVisualY = 343;
+int hatVisual1Y = 373;
 boolean hatMover;
 boolean hat1Mover;
 
 float tempoCount = 0;
 
-int kickVisualRadius = 500;
+int kickVisualRadius = 400;
 int kickVisualTimer;
 
 int melodyTint = 255;
+int melodyTint1 = 255;
 
 int xPos = 323;
-int yPos = 63;
+int yPos = 43;
 int tempoMark = 1;
 int kickAlpha = 255;
 
@@ -170,15 +171,18 @@ void setup() {
       melodies[i][j]._tone = melodySounds[j];
       
       melodies[i][j]._tint = melodyTint;
+      melodies[i][j]._tint1 = melodyTint1;
       melodyTint-=20;
+      melodyTint1-=5;
 
       yPos += 40;
     }
 
     tempoMark += 10;
     xPos+=40;
-    yPos=63;
+    yPos=43;
     melodyTint = 255;
+    melodyTint1 = 255;
   }
 }
 
@@ -227,14 +231,14 @@ void draw() {
 
   // Start of kick animation //
   fill(#ff94a7, 255);
-  ellipse(width/2, height/2, kickVisualRadius, kickVisualRadius);
+  ellipse(640,262, kickVisualRadius, kickVisualRadius);
 
   if (kickVisual == true) {
 
     kickVisualRadius+=40;
 
-    if (kickVisualRadius >= 500) {
-      kickVisualRadius = 500;
+    if (kickVisualRadius >= 400) {
+      kickVisualRadius = 400;
     }
   }
   // End of kick animation //
@@ -242,7 +246,7 @@ void draw() {
   // Start of snare animation //
   pushMatrix(); 
 
-  translate(240, 470); 
+  translate(160, height/2); 
   rotate(radians(snareVisualX)); //Change
   fill(#ffcba2, 255);
   rectMode(CENTER);
@@ -267,8 +271,8 @@ void draw() {
 
   //arc(1030, hatVisualY, 300, 50, PI, TWO_PI, CHORD);
   //arc(1030, hatVisual1Y, 300, 50, 0, PI, CHORD);
-  rect(1050,hatVisualY-20,300,50);
-  rect(1050,hatVisual1Y+20,300,50);
+  rect(1117,hatVisualY-20,255,50);
+  rect(1117,hatVisual1Y+20,255,50);
 
   if (hatVisual == true) {
 
@@ -278,13 +282,13 @@ void draw() {
       hatVisualY-=1;
     }
 
-    if (hatVisualY >= 185) {
-      hatVisualY = 185;
+    if (hatVisualY >= 358) {
+      hatVisualY = 358;
       hatMover = false;
     }
 
-    if (hatVisualY <= 170) {
-      hatVisualY = 170;
+    if (hatVisualY <= 343) {
+      hatVisualY = 343;
     }
 
     if (hat1Mover == true) {
@@ -293,13 +297,13 @@ void draw() {
       hatVisual1Y+=1;
     }
 
-    if (hatVisual1Y <= 185) {
-      hatVisual1Y = 185;
+    if (hatVisual1Y <= 358) {
+      hatVisual1Y = 358;
       hat1Mover = false;
     }
 
-    if (hatVisual1Y >= 200) {
-      hatVisual1Y = 200;
+    if (hatVisual1Y >= 373) {
+      hatVisual1Y = 373;
     }
   }
 
@@ -313,10 +317,6 @@ void draw() {
 
   slider.display();
   slider.move();
-  
-  fill(#5db3a8,100);
-  rectMode(CORNER);
-  rect(323,503,635,155);
 
   for (int i = 0; i < 16; i++) {
 
@@ -334,7 +334,6 @@ void draw() {
     tempoCount = 0;
   }
   
-  image(gridOverlay,0,0);
 }
 
 void mouseReleased() {
