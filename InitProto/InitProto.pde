@@ -44,6 +44,7 @@ PImage colorButton3;
 PImage colorButton4;
 PImage colorButton5;
 PImage glowButton;
+PImage gridOverlay;
 
 boolean[] kicksPush = new boolean[16];
 boolean[] snaresPush = new boolean[16];
@@ -105,6 +106,7 @@ void setup() {
   colorButton4 = loadImage("button_colored_4.png");
   colorButton5 = loadImage("button_colored_5.png");
   glowButton = loadImage("button_glow.png");
+  gridOverlay = loadImage("grid_overlay.png");
 
   minim = new Minim(this);
   kickSound = minim.loadFile("kick.wav");
@@ -182,7 +184,7 @@ void setup() {
 
 void draw() {
 
-  background(#ffc7cf);
+  background(#FAD9DA);
   tempoCount+=0.5;
 
   for (int i = 0; i < 16; i++) {
@@ -311,7 +313,10 @@ void draw() {
 
   slider.display();
   slider.move();
-
+  
+  fill(#5db3a8,100);
+  rectMode(CORNER);
+  rect(323,503,635,155);
 
   for (int i = 0; i < 16; i++) {
 
@@ -328,6 +333,8 @@ void draw() {
   if (tempoCount == 160) {
     tempoCount = 0;
   }
+  
+  image(gridOverlay,0,0);
 }
 
 void mouseReleased() {
