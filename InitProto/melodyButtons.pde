@@ -10,7 +10,7 @@ class melodyButtons {
   int _tempoMark;
   int _tint;
   int _tint1;
-  float _alpha;
+  //float _alpha;   BGAlpha
   PImage _button;
   boolean _colorChange;
 
@@ -33,12 +33,12 @@ class melodyButtons {
       _tone.rewind();
       _tone.play();
       println("Melody");
-      println(_alpha);
+      //println(_alpha);   BGAlpha
     }
 
-    if (tempoCount >= _tempoMark && tempoCount <= _tempoMark+10) {
-      BGAlpha = _alpha;
-    }
+    //if (tempoCount >= _tempoMark && tempoCount <= _tempoMark+10) {   BGAlpha
+    //  //BGAlpha = _alpha;
+    //}
   }
 
   void display() {

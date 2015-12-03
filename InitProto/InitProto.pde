@@ -68,8 +68,8 @@ boolean hatMover;
 boolean hat1Mover;
 
 float tempoCount = 0;
-float BGAlpha = 0;
-float alphaAmount = 110;
+//float BGAlpha = 0;   BGAlpha
+//float alphaAmount = 110;   BGAlpha
 
 int kickVisualRadius = 200;
 int kickVisualTimer;
@@ -172,7 +172,7 @@ void setup() {
       melodyTint1-=5;
 
       yPos += 40;
-      alphaAmount -= 10;
+      //alphaAmount -= 10;   BGAlpha
     }
 
     tempoMark += 10;
@@ -180,15 +180,15 @@ void setup() {
     yPos=43;
     melodyTint = 255;
     melodyTint1 = 255;
-    alphaAmount = 110;
+    //alphaAmount = 110;   BGAlpha
   }
 }
 
 void draw() {
 
   background(#FAD9DA);
-  fill(255, BGAlpha);
-  rect(0, 0, 1280, 720);
+  //fill(255, BGAlpha);   BGAlpha
+  //rect(0, 0, 1280, 720);   BGAlpha  
   tempoCount+=1;
 
   for (int i = 0; i < 16; i++) {
