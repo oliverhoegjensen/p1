@@ -14,7 +14,7 @@ class Slider {
   void display() {
     if(_x>323){
     strokeWeight(1);
-    fill(#11F5E0,150);
+    fill(0,150);
     rectMode(CORNER);
     rect(_x, _y, _width, _height);
     rect(_x, _y+480, _width, 155);

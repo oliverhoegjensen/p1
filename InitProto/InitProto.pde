@@ -1,4 +1,4 @@
-import ddf.minim.*;  //<>// //<>// //<>// //<>// //<>// //<>//
+import ddf.minim.*;  //<>// //<>// //<>// //<>// //<>// //<>// //<>//
 import ddf.minim.analysis.*;
 import ddf.minim.effects.*;
 import ddf.minim.signals.*;
@@ -103,11 +103,11 @@ int kickAlpha = 255;
 
 byte soundsLibrary = 1;
 
-color BG = #FAD9DA;
-color kick = #ff94a7;
-color snare = #ffcba2;
-color hat = #f8a393;
-color perc = #ffa7d1;
+color BG = #d9521f;
+color kick = #ff6c57;
+color snare = #8f4a2d;
+color hat = #e3be8d;
+color perc = #ff7e8a;
 
 kickButtons[] kicks = new kickButtons[16];
 snareButtons[] snares = new snareButtons[16];
