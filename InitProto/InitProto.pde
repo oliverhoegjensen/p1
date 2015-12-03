@@ -197,21 +197,30 @@ void setup() {
     kicks[i] = new kickButtons();
     kicks[i]._x = xPos;
     kicks[i]._tempoMark = tempoMark;
+    kicks[i]._tone = kickSound;
+    kicks[i]._tone2 = kickSound;
+    kicks[i]._tone3 = kickSound;
 
     snares[i] = new snareButtons();
     snares[i]._x = xPos;
     snares[i]._tempoMark = tempoMark;
+    snares[i]._tone = snareSound;
+    snares[i]._tone2 = snareSound;
+    snares[i]._tone3 = snareSound;
 
     hats[i] = new hatButtons();
     hats[i]._x = xPos;
     hats[i]._tempoMark = tempoMark;
-    hats[i]._tone = snareSound;
-    hats[i]._tone2 = snareSound;
-    hats[i]._tone3 = snareSound;
+    hats[i]._tone = hatSound;
+    hats[i]._tone2 = hatSound;
+    hats[i]._tone3 = hatSound;
 
     percs[i] = new percButtons();
     percs[i]._x = xPos;
     percs[i]._tempoMark = tempoMark;
+    percs[i]._tone = percSound;
+    percs[i]._tone2 = percSound;
+    percs[i]._tone3 = percSound;
 
     for (int j = 0; j < 11; j++) {
 

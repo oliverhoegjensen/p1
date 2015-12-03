@@ -12,6 +12,9 @@ class snareButtons {
   PImage _button;
   boolean _snareVisual;
 
+  AudioPlayer _tone;
+  AudioPlayer _tone2;
+  AudioPlayer _tone3;
 
   snareButtons() {
     _colR = 0;
@@ -25,21 +28,35 @@ class snareButtons {
 
   void play() {
     if (tempoCount == _tempoMark) { 
-      snareVisualX = 45;
-      _visualTimer = millis();
-      snareSound.rewind(); 
-      snareSound.play();
-      println("Snare");
-    }
-    
-    if (millis() - _visualTimer < 500) {
-      _snareVisual=true;
+      if (soundsLibrary == 1) {
+        _tone.rewind();
+        _tone.play();
+        _snareVisual=true;
+        snareVisualX = 45;
+        println("snare 1");
+      }
+
+      if (soundsLibrary == 2) {
+        _tone2.rewind();
+        _tone2.play();
+        _snareVisual=true;
+        snareVisualX = 45;
+        println("snare 2");
+      }
+
+      if (soundsLibrary == 3) {
+        _tone3.rewind();
+        _tone3.play();
+        _snareVisual=true;
+        snareVisualX = 45;
+        println("snare 3");
+      }
     }
   }
 
   void display() {
-    tint(255,255);
+    tint(255, 255);
     image(_button, _x, _y);
-    tint(255,255);
+    tint(255, 255);
   }
 }
