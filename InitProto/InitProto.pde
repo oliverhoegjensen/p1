@@ -1,4 +1,4 @@
-import ddf.minim.*;  //<>// //<>// //<>// //<>// //<>//
+import ddf.minim.*;  //<>// //<>// //<>// //<>// //<>// //<>//
 import ddf.minim.analysis.*;
 import ddf.minim.effects.*;
 import ddf.minim.signals.*;
@@ -102,6 +102,12 @@ int tempoMark = 1;
 int kickAlpha = 255;
 
 byte soundsLibrary = 1;
+
+color BG = #FAD9DA;
+color kick = #ff94a7;
+color snare = #ffcba2;
+color hat = #f8a393;
+color perc = #ffa7d1;
 
 kickButtons[] kicks = new kickButtons[16];
 snareButtons[] snares = new snareButtons[16];
@@ -233,7 +239,7 @@ void setup() {
 
 void draw() {
 
-  background(#FAD9DA);
+  background(BG);
   //fill(255, BGAlpha);   BGAlpha
   //rect(0, 0, 1280, 720);   BGAlpha  
   tempoCount+=1;
@@ -278,7 +284,7 @@ void draw() {
   }
 
   // Start of kick animation //
-  fill(#ff94a7, 255);
+  fill(kick, 255);
   ellipse(157, 200, kickVisualRadius, kickVisualRadius);
 
   if (kickVisual == true) {
@@ -296,7 +302,7 @@ void draw() {
 
   translate(160, 500); 
   rotate(radians(snareVisualX)); //Change
-  fill(#ffcba2, 255);
+  fill(snare, 255);
   rectMode(CENTER);
   rect(0, 0, 150, 150); 
 
@@ -315,7 +321,7 @@ void draw() {
 
   // Start of hat animation // 
 
-  fill(#f8a393, 255);
+  fill(hat, 255);
 
   rect(1117, hatVisualY-20, 200, 50);
   rect(1117, hatVisual1Y+20, 200, 50);
@@ -362,7 +368,7 @@ void draw() {
 
   translate(1117, 500); 
   rotate(radians(percVisualX)); //Change
-  fill(#ffa7d1, 255);
+  fill(perc, 255);
   arc(0, 0, 200, 200, PI, TWO_PI);
 
   if (percVisual == true) {
