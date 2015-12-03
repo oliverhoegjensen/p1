@@ -1,4 +1,4 @@
-import ddf.minim.*;  //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>//
+import ddf.minim.*;  //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>//
 import ddf.minim.analysis.*;
 import ddf.minim.effects.*;
 import ddf.minim.signals.*;
@@ -108,6 +108,7 @@ color kick = #ff6c57;
 color snare = #8f4a2d;
 color hat = #e3be8d;
 color perc = #ff7e8a;
+color sliderCol = #ffffff;
 
 kickButtons[] kicks = new kickButtons[16];
 snareButtons[] snares = new snareButtons[16];
@@ -250,21 +251,24 @@ void draw() {
     snare = #8f4a2d;
     hat = #e3be8d;
     perc = #ff7e8a;
+    sliderCol = #fde128;
   }
 
   if (soundsLibrary == 2) {
-    BG = #d9521f;
-    kick = #ff6c57;
-    snare = #8f4a2d;
-    hat = #e3be8d;
-    perc = #ff7e8a;
+    BG = #270636;
+    kick = #8566c1;
+    snare = #34fffd;
+    hat = #621084;
+    perc = #fc19f6;
+    sliderCol = #1feb4a;
   }
     if (soundsLibrary == 3) {
-    BG = #d9521f;
-    kick = #ff6c57;
-    snare = #8f4a2d;
-    hat = #e3be8d;
-    perc = #ff7e8a;
+    BG = #a38d74;
+    kick = #b5b5b5;
+    snare = #ffc5d7;
+    hat = #e34f0c;
+    perc = #96ac6f;
+    sliderCol = #ffffff;
   }
 
 
