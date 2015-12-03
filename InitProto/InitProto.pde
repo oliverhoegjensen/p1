@@ -1,4 +1,4 @@
-import ddf.minim.*;  //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>//
+import ddf.minim.*;  //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>//
 import ddf.minim.analysis.*;
 import ddf.minim.effects.*;
 import ddf.minim.signals.*;
@@ -144,7 +144,7 @@ void setup() {
   glowButton = loadImage("button_glow.png");
   gridOverlay = loadImage("grid_overlay.png");
   gridGuidanceDrums = loadImage("grid_guidance_drums.png");
-  arrows = loadImage("arrows.png");
+  arrows = loadImage("arrowscopy.png");
 
   minim = new Minim(this);
   minim1 = new Minim(this);
