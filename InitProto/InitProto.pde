@@ -1,4 +1,4 @@
-import ddf.minim.*;  //<>// //<>// //<>// //<>//
+import ddf.minim.*;  //<>// //<>// //<>// //<>// //<>//
 import ddf.minim.analysis.*;
 import ddf.minim.effects.*;
 import ddf.minim.signals.*;
@@ -63,6 +63,7 @@ PImage colorButton5;
 PImage glowButton;
 PImage gridOverlay;
 PImage gridGuidanceDrums;
+PImage arrows;
 
 boolean[] kicksPush = new boolean[16];
 boolean[] snaresPush = new boolean[16];
@@ -125,6 +126,7 @@ void setup() {
   glowButton = loadImage("button_glow.png");
   gridOverlay = loadImage("grid_overlay.png");
   gridGuidanceDrums = loadImage("grid_guidance_drums.png");
+  arrows = loadImage("arrows.png");
 
   minim = new Minim(this);
   minim1 = new Minim(this);
@@ -388,6 +390,8 @@ void draw() {
   tint(255, 255);
 
   image(gridGuidanceDrums, 0, 0);
+  
+  image(arrows,0,0);
 
   for (int i = 0; i < 16; i++) {
 
