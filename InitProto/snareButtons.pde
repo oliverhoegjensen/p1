@@ -28,7 +28,7 @@ class snareButtons {
 
   void play() {
     if (tempoCount == _tempoMark) { 
-      if (soundsLibrary == 1) {
+      if (drumsLibrary == 1) {
         _tone.rewind();
         _tone.play();
         _snareVisual=true;
@@ -36,7 +36,7 @@ class snareButtons {
         println("snare 1");
       }
 
-      if (soundsLibrary == 2) {
+      if (drumsLibrary == 2) {
         _tone2.rewind();
         _tone2.play();
         _snareVisual=true;
@@ -44,7 +44,7 @@ class snareButtons {
         println("snare 2");
       }
 
-      if (soundsLibrary == 3) {
+      if (drumsLibrary == 3) {
         _tone3.rewind();
         _tone3.play();
         _snareVisual=true;

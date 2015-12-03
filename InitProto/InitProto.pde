@@ -1,4 +1,4 @@
-import ddf.minim.*;  //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>//
+import ddf.minim.*;  //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>//
 import ddf.minim.analysis.*;
 import ddf.minim.effects.*;
 import ddf.minim.signals.*;
@@ -113,6 +113,7 @@ int tempoMark = 1;
 int kickAlpha = 255;
 
 byte soundsLibrary = 1;
+byte drumsLibrary = 1;
 
 color BG = #d9521f;
 color kick = #ff6c57;
@@ -154,12 +155,12 @@ void setup() {
   snareSound = minim.loadFile("snare.wav");
   hatSound = minim.loadFile("hat.wav");
   percSound = minim.loadFile("perc.wav");
-  
+
   kickSound2 = minim.loadFile("kick2.wav");
   snareSound2 = minim.loadFile("snare2.wav");
   hatSound2 = minim.loadFile("hat2.wav");
   percSound2 = minim.loadFile("perc2.wav");
-  
+
   kickSound3 = minim.loadFile("kick3.wav");
   snareSound3 = minim.loadFile("snare3.wav");
   hatSound3 = minim.loadFile("hat3.wav");
@@ -168,30 +169,30 @@ void setup() {
   slider = new Slider();
 
   //Pad sounds
-  p1 = minim.loadFile("s1.wav");
-  p2 = minim.loadFile("s2.wav");
-  p3 = minim.loadFile("s3.wav");
-  p4 = minim.loadFile("s4.wav");
-  p5 = minim.loadFile("s5.wav");
-  p6 = minim.loadFile("s6.wav");
-  p7 = minim.loadFile("s7.wav");
-  p8 = minim.loadFile("s8.wav");
-  p9 = minim.loadFile("s9.wav");
-  p10 = minim.loadFile("s10.wav");
-  p11 = minim.loadFile("s11.wav");
+  p1 = minim.loadFile("b1.wav");
+  p2 = minim.loadFile("b2.wav");
+  p3 = minim.loadFile("b3.wav");
+  p4 = minim.loadFile("b4.wav");
+  p5 = minim.loadFile("b5.wav");
+  p6 = minim.loadFile("b6.wav");
+  p7 = minim.loadFile("b7.wav");
+  p8 = minim.loadFile("b8.wav");
+  p9 = minim.loadFile("b9.wav");
+  p10 = minim.loadFile("b10.wav");
+  p11 = minim.loadFile("b11.wav");
 
   //Synth sounds
-  d1 = minim1.loadFile("b11.wav");
-  d2 = minim1.loadFile("b10.wav");
-  d3 = minim1.loadFile("b9.wav");
-  d4 = minim1.loadFile("b8.wav");
-  d5 = minim1.loadFile("b7.wav");
-  d6 = minim1.loadFile("b6.wav");
-  d7 = minim1.loadFile("b5.wav");
-  d8 = minim1.loadFile("b4.wav");
-  d9 = minim1.loadFile("b3.wav");
-  d10 = minim1.loadFile("b2.wav");
-  d11 = minim1.loadFile("b1.wav");
+  d1 = minim1.loadFile("s1.wav");
+  d2 = minim1.loadFile("s2.wav");
+  d3 = minim1.loadFile("s3.wav");
+  d4 = minim1.loadFile("s4.wav");
+  d5 = minim1.loadFile("s5.wav");
+  d6 = minim1.loadFile("s6.wav");
+  d7 = minim1.loadFile("s7.wav");
+  d8 = minim1.loadFile("s8.wav");
+  d9 = minim1.loadFile("s9.wav");
+  d10 = minim1.loadFile("s10.wav");
+  d11 = minim1.loadFile("b11.wav");
 
   //Piano sounds
   k1 = minim2.loadFile("v1.wav");
@@ -482,17 +483,31 @@ void draw() {
 }
 
 void mouseReleased() {
-  if (mouseX > 936 && mouseX < 1002 && mouseY > 204 && mouseY < 318) {
+  if (mouseX >= 963 && mouseX <= 1003 && mouseY >= 204 && mouseY <= 318) {
     soundsLibrary ++;
     if (soundsLibrary == 4) {
       soundsLibrary = 1;
     }
   }
 
-  if (mouseX > 278 && mouseX < 317 && mouseY > 204 && mouseY < 318) {
+  if (mouseX >= 278 && mouseX <= 317 && mouseY >= 204 && mouseY <= 318) {
     soundsLibrary --;
     if (soundsLibrary == 0) {
       soundsLibrary = 3;
+    }
+  }
+
+  if (mouseX >= 963 && mouseX <= 1003 && mouseY >= 564 && mouseY <= 638) {
+    drumsLibrary ++;
+    if (drumsLibrary == 4) {
+      drumsLibrary = 1;
+    }
+  }
+
+  if (mouseX >= 278 && mouseX <= 317 && mouseY >= 564 && mouseY <= 638) {
+    drumsLibrary --;
+    if (drumsLibrary == 0) {
+      drumsLibrary = 3;
     }
   }
 

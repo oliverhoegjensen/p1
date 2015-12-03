@@ -28,7 +28,7 @@ class percButtons {
 
   void play() {
     if (tempoCount == _tempoMark) { 
-      if (soundsLibrary == 1) {
+      if (drumsLibrary == 1) {
         _tone.rewind();
         _tone.play();
         percVisualX = 45;
@@ -36,7 +36,7 @@ class percButtons {
         println("perc 1");
       }
 
-      if (soundsLibrary == 2) {
+      if (drumsLibrary == 2) {
         _tone2.rewind();
         _tone2.play();
         percVisualX = 45;
@@ -44,7 +44,7 @@ class percButtons {
         println("perc 2");
       }
 
-      if (soundsLibrary == 3) {
+      if (drumsLibrary == 3) {
         _tone3.rewind();
         _tone3.play();
         percVisualX = 45;
