@@ -1,4 +1,4 @@
-import ddf.minim.*;  //<>// //<>//
+import ddf.minim.*;  //<>// //<>// //<>//
 import ddf.minim.analysis.*;
 import ddf.minim.effects.*;
 import ddf.minim.signals.*;
@@ -45,6 +45,7 @@ PImage colorButton4;
 PImage colorButton5;
 PImage glowButton;
 PImage gridOverlay;
+PImage gridGuidanceDrums;
 
 boolean[] kicksPush = new boolean[16];
 boolean[] snaresPush = new boolean[16];
@@ -104,6 +105,7 @@ void setup() {
   colorButton5 = loadImage("button_colored_5.png");
   glowButton = loadImage("button_glow.png");
   gridOverlay = loadImage("grid_overlay.png");
+  gridGuidanceDrums = loadImage("grid_guidance_drums.png");
 
   minim = new Minim(this);
   kickSound = minim.loadFile("kick.wav");
@@ -165,7 +167,7 @@ void setup() {
       melodies[i][j]._y = yPos;
       melodies[i][j]._tempoMark = tempoMark;
       melodies[i][j]._tone = melodySounds[j];
-      melodies[i][j]._alpha = alphaAmount;
+      //melodies[i][j]._alpha = alphaAmount;
       melodies[i][j]._tint = melodyTint;
       melodies[i][j]._tint1 = melodyTint1;
       melodyTint-=20;
@@ -235,7 +237,7 @@ void draw() {
 
   if (kickVisual == true) {
 
-    kickVisualRadius+=40;
+    kickVisualRadius+=20;
 
     if (kickVisualRadius >= 200) {
       kickVisualRadius = 200;
@@ -340,6 +342,8 @@ void draw() {
   // End of perc animation //
 
   tint(255, 255);
+  
+  image(gridGuidanceDrums,0,0);
 
   for (int i = 0; i < 16; i++) {
 
