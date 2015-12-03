@@ -14,6 +14,17 @@ AudioPlayer snareSound;
 AudioPlayer hatSound;
 AudioPlayer percSound;
 
+AudioPlayer kickSound2;
+AudioPlayer snareSound2;
+AudioPlayer hatSound2;
+AudioPlayer percSound2;
+
+AudioPlayer kickSound3;
+AudioPlayer snareSound3;
+AudioPlayer hatSound3;
+AudioPlayer percSound3;
+
+
 //pad objects
 AudioPlayer p1;
 AudioPlayer p2;
@@ -143,6 +154,16 @@ void setup() {
   snareSound = minim.loadFile("snare.wav");
   hatSound = minim.loadFile("hat.wav");
   percSound = minim.loadFile("perc.wav");
+  
+  kickSound2 = minim.loadFile("kick2.wav");
+  snareSound2 = minim.loadFile("snare2.wav");
+  hatSound2 = minim.loadFile("hat2.wav");
+  percSound2 = minim.loadFile("perc2.wav");
+  
+  kickSound3 = minim.loadFile("kick3.wav");
+  snareSound3 = minim.loadFile("snare3.wav");
+  hatSound3 = minim.loadFile("hat3.wav");
+  percSound3 = minim.loadFile("perc3.wav");
 
   slider = new Slider();
 
@@ -198,29 +219,29 @@ void setup() {
     kicks[i]._x = xPos;
     kicks[i]._tempoMark = tempoMark;
     kicks[i]._tone = kickSound;
-    kicks[i]._tone2 = kickSound;
-    kicks[i]._tone3 = kickSound;
+    kicks[i]._tone2 = kickSound2;
+    kicks[i]._tone3 = kickSound3;
 
     snares[i] = new snareButtons();
     snares[i]._x = xPos;
     snares[i]._tempoMark = tempoMark;
     snares[i]._tone = snareSound;
-    snares[i]._tone2 = snareSound;
-    snares[i]._tone3 = snareSound;
+    snares[i]._tone2 = snareSound2;
+    snares[i]._tone3 = snareSound3;
 
     hats[i] = new hatButtons();
     hats[i]._x = xPos;
     hats[i]._tempoMark = tempoMark;
     hats[i]._tone = hatSound;
-    hats[i]._tone2 = hatSound;
-    hats[i]._tone3 = hatSound;
+    hats[i]._tone2 = hatSound2;
+    hats[i]._tone3 = hatSound3;
 
     percs[i] = new percButtons();
     percs[i]._x = xPos;
     percs[i]._tempoMark = tempoMark;
     percs[i]._tone = percSound;
-    percs[i]._tone2 = percSound;
-    percs[i]._tone3 = percSound;
+    percs[i]._tone2 = percSound2;
+    percs[i]._tone3 = percSound3;
 
     for (int j = 0; j < 11; j++) {
 
@@ -254,7 +275,8 @@ void draw() {
 
   background(BG);
   //fill(255, BGAlpha);   BGAlpha
-  //rect(0, 0, 1280, 720);   BGAlpha  
+  //rect(0, 0, 1280, 720);   BGAlpha 
+
   tempoCount+=1;
 
   if (soundsLibrary == 1) {
