@@ -1,4 +1,4 @@
-import ddf.minim.*;  //<>// //<>// //<>//
+import ddf.minim.*;  //<>// //<>// //<>// //<>//
 import ddf.minim.analysis.*;
 import ddf.minim.effects.*;
 import ddf.minim.signals.*;
@@ -6,24 +6,15 @@ import ddf.minim.spi.*;
 import ddf.minim.ugens.*; //
 
 Minim minim;
+Minim minim1;
+Minim minim2;
+
 AudioPlayer kickSound;
 AudioPlayer snareSound;
 AudioPlayer hatSound;
 AudioPlayer percSound;
 
-// sax melody sounds
-AudioPlayer c1;
-AudioPlayer d1;
-AudioPlayer e1;
-AudioPlayer g1;
-AudioPlayer a1;
-AudioPlayer c2;
-AudioPlayer d2;
-AudioPlayer e2;
-AudioPlayer g2;
-AudioPlayer a2;
-AudioPlayer c3;
-
+//pad objects
 AudioPlayer p1;
 AudioPlayer p2;
 AudioPlayer p3;
@@ -35,6 +26,32 @@ AudioPlayer p8;
 AudioPlayer p9;
 AudioPlayer p10;
 AudioPlayer p11;
+
+//Synth objects
+AudioPlayer d1;
+AudioPlayer d2;
+AudioPlayer d3;
+AudioPlayer d4;
+AudioPlayer d5;
+AudioPlayer d6;
+AudioPlayer d7;
+AudioPlayer d8;
+AudioPlayer d9;
+AudioPlayer d10;
+AudioPlayer d11;
+
+//Piano objects
+AudioPlayer k1;
+AudioPlayer k2;
+AudioPlayer k3;
+AudioPlayer k4;
+AudioPlayer k5;
+AudioPlayer k6;
+AudioPlayer k7;
+AudioPlayer k8;
+AudioPlayer k9;
+AudioPlayer k10;
+AudioPlayer k11;
 
 
 PImage standardButton;
@@ -83,6 +100,8 @@ int yPos = 43;
 int tempoMark = 1;
 int kickAlpha = 255;
 
+byte soundsLibrary = 1;
+
 kickButtons[] kicks = new kickButtons[16];
 snareButtons[] snares = new snareButtons[16];
 hatButtons[] hats = new hatButtons[16];
@@ -108,6 +127,9 @@ void setup() {
   gridGuidanceDrums = loadImage("grid_guidance_drums.png");
 
   minim = new Minim(this);
+  minim1 = new Minim(this);
+  minim2 = new Minim(this);
+
   kickSound = minim.loadFile("kick.wav");
   snareSound = minim.loadFile("snare.wav");
   hatSound = minim.loadFile("hat.wav");
@@ -115,18 +137,7 @@ void setup() {
 
   slider = new Slider();
 
-  c1 = minim.loadFile("c1.wav");
-  d1 = minim.loadFile("d1.wav");
-  e1 = minim.loadFile("e1.wav");
-  g1 = minim.loadFile("g1.wav");
-  a1 = minim.loadFile("a1.wav");
-  c2 = minim.loadFile("c2.wav");
-  d2 = minim.loadFile("d2.wav");
-  e2 = minim.loadFile("e2.wav");
-  g2 = minim.loadFile("g2.wav");
-  a2 = minim.loadFile("a2.wav");
-  c3 = minim.loadFile("c3.wav");
-
+  //Pad sounds
   p1 = minim.loadFile("p1.wav");
   p2 = minim.loadFile("p2.wav");
   p3 = minim.loadFile("p3.wav");
@@ -139,8 +150,38 @@ void setup() {
   p10 = minim.loadFile("p10.wav");
   p11 = minim.loadFile("p11.wav");
 
+  //Synth sounds
+  d1 = minim1.loadFile("d1.wav");
+  d2 = minim1.loadFile("d2.wav");
+  d3 = minim1.loadFile("d3.wav");
+  d4 = minim1.loadFile("d4.wav");
+  d5 = minim1.loadFile("d5.wav");
+  d6 = minim1.loadFile("d6.wav");
+  d7 = minim1.loadFile("d7.wav");
+  d8 = minim1.loadFile("d8.wav");
+  d9 = minim1.loadFile("d9.wav");
+  d10 = minim1.loadFile("d10.wav");
+  d11 = minim1.loadFile("d11.wav");
+
+  //Piano sounds
+  k1 = minim2.loadFile("k1.wav");
+  k2 = minim2.loadFile("k2.wav");
+  k3 = minim2.loadFile("k3.wav");
+  k4 = minim2.loadFile("k4.wav");
+  k5 = minim2.loadFile("k5.wav");
+  k6 = minim2.loadFile("k6.wav");
+  k7 = minim2.loadFile("k7.wav");
+  k8 = minim2.loadFile("k8.wav");
+  k9 = minim2.loadFile("k9.wav");
+  k10 = minim2.loadFile("k10.wav");
+  k11 = minim2.loadFile("k11.wav");  
+
 
   AudioPlayer[] melodySounds = {p11, p10, p9, p8, p7, p6, p5, p4, p3, p2, p1};
+
+  AudioPlayer[] melodySounds2 = {d1, d2, d3, d4, d5, d6, d7, d8, d9, d10, d11};
+
+  AudioPlayer[] melodySounds3 = {k1, k2, k3, k4, k5, k6, k7, k8, k9, k10, k11};
 
   for (int i = 0; i < 16; i++) {
 
@@ -167,7 +208,9 @@ void setup() {
       melodies[i][j]._y = yPos;
       melodies[i][j]._tempoMark = tempoMark;
       melodies[i][j]._tone = melodySounds[j];
-      //melodies[i][j]._alpha = alphaAmount;
+      melodies[i][j]._tone2 = melodySounds2[j];
+      melodies[i][j]._tone3 = melodySounds3[j];
+      //melodies[i][j]._alpha = alphaAmount;    BGAlpha
       melodies[i][j]._tint = melodyTint;
       melodies[i][j]._tint1 = melodyTint1;
       melodyTint-=20;
@@ -192,6 +235,7 @@ void draw() {
   //fill(255, BGAlpha);   BGAlpha
   //rect(0, 0, 1280, 720);   BGAlpha  
   tempoCount+=1;
+  
 
   for (int i = 0; i < 16; i++) {
 
@@ -330,20 +374,20 @@ void draw() {
   } 
 
   popMatrix();
-  
+
   pushMatrix();
-  
-  translate(1117,500);
+
+  translate(1117, 500);
   arc(0, 0, 200, 200, 0, PI);
-  
+
   popMatrix();
 
 
   // End of perc animation //
 
   tint(255, 255);
-  
-  image(gridGuidanceDrums,0,0);
+
+  image(gridGuidanceDrums, 0, 0);
 
   for (int i = 0; i < 16; i++) {
 
@@ -366,6 +410,12 @@ void draw() {
 }
 
 void mouseReleased() {
+  if (mouseX > 0 && mouseX < 30 && mouseY > 0 && mouseY < 30){
+    soundsLibrary ++;
+    if (soundsLibrary == 4){
+       soundsLibrary = 1; 
+    }
+  }
 
   //eventuelt lav function til dette i class'en
   for (int i = 0; i < 16; i++) {

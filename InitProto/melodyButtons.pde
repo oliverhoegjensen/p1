@@ -15,6 +15,8 @@ class melodyButtons {
   boolean _colorChange;
 
   AudioPlayer _tone;
+  AudioPlayer _tone2;
+  AudioPlayer _tone3;
 
   melodyButtons() {
     _colR = 0;
@@ -29,11 +31,25 @@ class melodyButtons {
 
   void play() {
     _colorChange = true;
+    
     if (tempoCount == _tempoMark) { 
+      if(soundsLibrary == 1){
       _tone.rewind();
       _tone.play();
-      println("Melody");
-      //println(_alpha);   BGAlpha
+      println("tone 1");
+      }
+      
+      if(soundsLibrary == 2){
+      _tone2.rewind();
+      _tone2.play();
+      println("tone 2");
+      }
+      
+      if(soundsLibrary == 3){
+      _tone3.rewind();
+      _tone3.play();
+      println("tone 3");
+      }
     }
 
     //if (tempoCount >= _tempoMark && tempoCount <= _tempoMark+10) {   BGAlpha
