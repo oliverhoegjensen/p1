@@ -12,6 +12,7 @@ class snareButtons {
   PImage _button;
   boolean _snareVisual;
 
+
   snareButtons() {
     _colR = 0;
     _colG = 0;

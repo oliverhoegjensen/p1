@@ -11,6 +11,10 @@ class percButtons {
   int _visualTimer;
   PImage _button;
   boolean _percVisual;
+  
+  AudioPlayer _tone;
+  AudioPlayer _tone2;
+  AudioPlayer _tone3;
 
   percButtons() {
     _colR = 0;

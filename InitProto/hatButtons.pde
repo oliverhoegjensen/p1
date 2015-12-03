@@ -12,6 +12,10 @@ class hatButtons {
   PImage _button;
   boolean _hatVisual;
 
+  AudioPlayer _tone;
+  AudioPlayer _tone2;
+  AudioPlayer _tone3;
+
   hatButtons() {
     _colR = 0;
     _colG = 0;
@@ -24,22 +28,40 @@ class hatButtons {
 
   void play() {
     if (tempoCount == _tempoMark) { 
-      _visualTimer = millis();
-      hatSound.rewind(); 
-      hatSound.play();
-      hatMover = true;
-      hat1Mover = true;
-      println("Hat");
-    }
-    
-    if (millis() - _visualTimer < 500) {
-      _hatVisual=true;
+      if (tempoCount == _tempoMark) { 
+        if (soundsLibrary == 1) {
+          _tone.rewind();
+          _tone.play();
+          hatMover = true;
+          hat1Mover = true;
+          _hatVisual=true;
+          println("hat 1");
+        }
+
+        if (soundsLibrary == 2) {
+          _tone2.rewind();
+          _tone2.play();
+          hatMover = true;
+          hat1Mover = true;
+          _hatVisual=true;
+          println("hat 2");
+        }
+
+        if (soundsLibrary == 3) {
+          _tone3.rewind();
+          _tone3.play();
+          hatMover = true;
+          hat1Mover = true;
+          _hatVisual=true;
+          println("hat 3");
+        }
+      }
     }
   }
 
-  void display() {
-    tint(255,255);
-    image(_button, _x, _y);
-    tint(255,255);
+    void display() {
+      tint(255, 255);
+      image(_button, _x, _y);
+      tint(255, 255);
+    }
   }
-}

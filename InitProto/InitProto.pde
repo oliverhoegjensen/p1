@@ -205,6 +205,9 @@ void setup() {
     hats[i] = new hatButtons();
     hats[i]._x = xPos;
     hats[i]._tempoMark = tempoMark;
+    hats[i]._tone = snareSound;
+    hats[i]._tone2 = snareSound;
+    hats[i]._tone3 = snareSound;
 
     percs[i] = new percButtons();
     percs[i]._x = xPos;
@@ -262,7 +265,7 @@ void draw() {
     perc = #fc19f6;
     sliderCol = #1feb4a;
   }
-    if (soundsLibrary == 3) {
+  if (soundsLibrary == 3) {
     BG = #a38d74;
     kick = #b5b5b5;
     snare = #ffc5d7;
@@ -273,7 +276,7 @@ void draw() {
 
 
 
-    for (int i = 0; i < 16; i++) {
+  for (int i = 0; i < 16; i++) {
 
     for (int j = 0; j < 11; j++) {
 

@@ -11,6 +11,10 @@ class kickButtons {
   int _visualTimer;
   PImage _button;
   boolean _kickVisual;
+  
+  AudioPlayer _tone;
+  AudioPlayer _tone2;
+  AudioPlayer _tone3;
 
   kickButtons() {
     _colR = 0;
