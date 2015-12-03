@@ -1,4 +1,4 @@
-import ddf.minim.*;  //<>// //<>// //<>// //<>// //<>// //<>// //<>//
+import ddf.minim.*;  //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>//
 import ddf.minim.analysis.*;
 import ddf.minim.effects.*;
 import ddf.minim.signals.*;
@@ -243,9 +243,33 @@ void draw() {
   //fill(255, BGAlpha);   BGAlpha
   //rect(0, 0, 1280, 720);   BGAlpha  
   tempoCount+=1;
-  
 
-  for (int i = 0; i < 16; i++) {
+  if (soundsLibrary == 1) {
+    BG = #d9521f;
+    kick = #ff6c57;
+    snare = #8f4a2d;
+    hat = #e3be8d;
+    perc = #ff7e8a;
+  }
+
+  if (soundsLibrary == 2) {
+    BG = #d9521f;
+    kick = #ff6c57;
+    snare = #8f4a2d;
+    hat = #e3be8d;
+    perc = #ff7e8a;
+  }
+    if (soundsLibrary == 3) {
+    BG = #d9521f;
+    kick = #ff6c57;
+    snare = #8f4a2d;
+    hat = #e3be8d;
+    perc = #ff7e8a;
+  }
+
+
+
+    for (int i = 0; i < 16; i++) {
 
     for (int j = 0; j < 11; j++) {
 
@@ -396,8 +420,8 @@ void draw() {
   tint(255, 255);
 
   image(gridGuidanceDrums, 0, 0);
-  
-  image(arrows,0,0);
+
+  image(arrows, 0, 0);
 
   for (int i = 0; i < 16; i++) {
 
@@ -420,17 +444,17 @@ void draw() {
 }
 
 void mouseReleased() {
-  if (mouseX > 936 && mouseX < 1002 && mouseY > 204 && mouseY < 318){
+  if (mouseX > 936 && mouseX < 1002 && mouseY > 204 && mouseY < 318) {
     soundsLibrary ++;
-    if (soundsLibrary == 4){
-       soundsLibrary = 1; 
+    if (soundsLibrary == 4) {
+      soundsLibrary = 1;
     }
   }
-  
-  if (mouseX > 278 && mouseX < 317 && mouseY > 204 && mouseY < 318){
+
+  if (mouseX > 278 && mouseX < 317 && mouseY > 204 && mouseY < 318) {
     soundsLibrary --;
-    if (soundsLibrary == 0){
-       soundsLibrary = 3; 
+    if (soundsLibrary == 0) {
+      soundsLibrary = 3;
     }
   }
 
