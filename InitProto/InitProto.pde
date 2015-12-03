@@ -168,46 +168,46 @@ void setup() {
   slider = new Slider();
 
   //Pad sounds
-  p1 = minim.loadFile("p1.wav");
-  p2 = minim.loadFile("p2.wav");
-  p3 = minim.loadFile("p3.wav");
-  p4 = minim.loadFile("p4.wav");
-  p5 = minim.loadFile("p5.wav");
-  p6 = minim.loadFile("p6.wav");
-  p7 = minim.loadFile("p7.wav");
-  p8 = minim.loadFile("p8.wav");
-  p9 = minim.loadFile("p9.wav");
-  p10 = minim.loadFile("p10.wav");
-  p11 = minim.loadFile("p11.wav");
+  p1 = minim.loadFile("s1.wav");
+  p2 = minim.loadFile("s2.wav");
+  p3 = minim.loadFile("s3.wav");
+  p4 = minim.loadFile("s4.wav");
+  p5 = minim.loadFile("s5.wav");
+  p6 = minim.loadFile("s6.wav");
+  p7 = minim.loadFile("s7.wav");
+  p8 = minim.loadFile("s8.wav");
+  p9 = minim.loadFile("s9.wav");
+  p10 = minim.loadFile("s10.wav");
+  p11 = minim.loadFile("s11.wav");
 
   //Synth sounds
-  d1 = minim1.loadFile("d1.wav");
-  d2 = minim1.loadFile("d2.wav");
-  d3 = minim1.loadFile("d3.wav");
-  d4 = minim1.loadFile("d4.wav");
-  d5 = minim1.loadFile("d5.wav");
-  d6 = minim1.loadFile("d6.wav");
-  d7 = minim1.loadFile("d7.wav");
-  d8 = minim1.loadFile("d8.wav");
-  d9 = minim1.loadFile("d9.wav");
-  d10 = minim1.loadFile("d10.wav");
-  d11 = minim1.loadFile("d11.wav");
+  d1 = minim1.loadFile("b11.wav");
+  d2 = minim1.loadFile("b10.wav");
+  d3 = minim1.loadFile("b9.wav");
+  d4 = minim1.loadFile("b8.wav");
+  d5 = minim1.loadFile("b7.wav");
+  d6 = minim1.loadFile("b6.wav");
+  d7 = minim1.loadFile("b5.wav");
+  d8 = minim1.loadFile("b4.wav");
+  d9 = minim1.loadFile("b3.wav");
+  d10 = minim1.loadFile("b2.wav");
+  d11 = minim1.loadFile("b1.wav");
 
   //Piano sounds
-  k1 = minim2.loadFile("k1.wav");
-  k2 = minim2.loadFile("k2.wav");
-  k3 = minim2.loadFile("k3.wav");
-  k4 = minim2.loadFile("k4.wav");
-  k5 = minim2.loadFile("k5.wav");
-  k6 = minim2.loadFile("k6.wav");
-  k7 = minim2.loadFile("k7.wav");
-  k8 = minim2.loadFile("k8.wav");
-  k9 = minim2.loadFile("k9.wav");
-  k10 = minim2.loadFile("k10.wav");
-  k11 = minim2.loadFile("k11.wav");  
+  k1 = minim2.loadFile("v1.wav");
+  k2 = minim2.loadFile("v2.wav");
+  k3 = minim2.loadFile("v3.wav");
+  k4 = minim2.loadFile("v4.wav");
+  k5 = minim2.loadFile("v5.wav");
+  k6 = minim2.loadFile("v6.wav");
+  k7 = minim2.loadFile("v7.wav");
+  k8 = minim2.loadFile("v8.wav");
+  k9 = minim2.loadFile("v9.wav");
+  k10 = minim2.loadFile("v10.wav");
+  k11 = minim2.loadFile("v11.wav");  
 
 
-  AudioPlayer[] melodySounds = {p11, p10, p9, p8, p7, p6, p5, p4, p3, p2, p1};
+  AudioPlayer[] melodySounds = {p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11};
 
   AudioPlayer[] melodySounds2 = {d1, d2, d3, d4, d5, d6, d7, d8, d9, d10, d11};
 
