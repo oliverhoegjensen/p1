@@ -414,10 +414,17 @@ void draw() {
 }
 
 void mouseReleased() {
-  if (mouseX > 0 && mouseX < 30 && mouseY > 0 && mouseY < 30){
+  if (mouseX > 936 && mouseX < 1002 && mouseY > 204 && mouseY < 318){
     soundsLibrary ++;
     if (soundsLibrary == 4){
        soundsLibrary = 1; 
+    }
+  }
+  
+  if (mouseX > 278 && mouseX < 317 && mouseY > 204 && mouseY < 318){
+    soundsLibrary --;
+    if (soundsLibrary == 0){
+       soundsLibrary = 3; 
     }
   }
 
