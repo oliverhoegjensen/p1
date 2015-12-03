@@ -250,7 +250,7 @@ void draw() {
     kick = #ff6c57;
     snare = #8f4a2d;
     hat = #e3be8d;
-    perc = #ff7e8a;
+    perc = #ffb5cc;
     sliderCol = #fde128;
   }
 
@@ -268,7 +268,7 @@ void draw() {
     snare = #ffc5d7;
     hat = #e34f0c;
     perc = #96ac6f;
-    sliderCol = #ffffff;
+    sliderCol = #b9b9ff;
   }
 
 
@@ -313,7 +313,7 @@ void draw() {
 
   // Start of kick animation //
   fill(kick, 255);
-  ellipse(157, 200, kickVisualRadius, kickVisualRadius);
+  ellipse(142, 220, kickVisualRadius, kickVisualRadius);
 
   if (kickVisual == true) {
 
@@ -328,7 +328,7 @@ void draw() {
   // Start of snare animation //
   pushMatrix(); 
 
-  translate(160, 500); 
+  translate(140, 500); 
   rotate(radians(snareVisualX)); //Change
   fill(snare, 255);
   rectMode(CENTER);
@@ -351,8 +351,8 @@ void draw() {
 
   fill(hat, 255);
 
-  rect(1117, hatVisualY-20, 200, 50);
-  rect(1117, hatVisual1Y+20, 200, 50);
+  rect(1143, hatVisualY-20, 200, 50);
+  rect(1143, hatVisual1Y+20, 200, 50);
 
   if (hatVisual == true) {
 
@@ -394,7 +394,7 @@ void draw() {
 
   pushMatrix(); 
 
-  translate(1117, 500); 
+  translate(1140, 500); 
   rotate(radians(percVisualX)); //Change
   fill(perc, 255);
   arc(0, 0, 200, 200, PI, TWO_PI);
@@ -413,7 +413,7 @@ void draw() {
 
   pushMatrix();
 
-  translate(1117, 500);
+  translate(1140, 500);
   arc(0, 0, 200, 200, 0, PI);
 
   popMatrix();
