@@ -24,6 +24,7 @@ class percButtons {
 
   void play() {
     if (tempoCount == _tempoMark) { 
+      percVisualX = 45;
       _visualTimer = millis();
       percSound.rewind(); 
       percSound.play();
@@ -32,11 +33,12 @@ class percButtons {
     
     if (millis() - _visualTimer < 500) {
       _percVisual=true;
-    } else { _percVisual = false; }
+    }
   }
 
   void display() {
-    tint(255,180);
+    tint(255,255);
     image(_button, _x, _y);
+    tint(255,255);
   }
 }

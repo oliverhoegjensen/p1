@@ -60,16 +60,10 @@ boolean percVisual;
 
 float snareVisualX = 45;
 
-boolean percVisualMove;
+float percVisualX = 45;
 
-float [] percVisualX = new float [10];
-float [] percVisualY = new float [10];
-float [] percVisualR = new float [10];
-float [] PercVisualSpeedX = new float [10];
-float [] PercVisualSpeedY = new float [10];
-
-int hatVisualY = 343;
-int hatVisual1Y = 373;
+int hatVisualY = 170;
+int hatVisual1Y = 200;
 boolean hatMover;
 boolean hat1Mover;
 
@@ -77,7 +71,7 @@ float tempoCount = 0;
 float BGAlpha = 0;
 float alphaAmount = 110;
 
-int kickVisualRadius = 400;
+int kickVisualRadius = 200;
 int kickVisualTimer;
 
 int melodyTint = 255;
@@ -195,7 +189,7 @@ void draw() {
   background(#FAD9DA);
   fill(255, BGAlpha);
   rect(0, 0, 1280, 720);
-  tempoCount+=0.5;
+  tempoCount+=1;
 
   for (int i = 0; i < 16; i++) {
 
@@ -237,14 +231,14 @@ void draw() {
 
   // Start of kick animation //
   fill(#ff94a7, 255);
-  ellipse(640,262, kickVisualRadius, kickVisualRadius);
+  ellipse(157, 200, kickVisualRadius, kickVisualRadius);
 
   if (kickVisual == true) {
 
     kickVisualRadius+=40;
 
-    if (kickVisualRadius >= 400) {
-      kickVisualRadius = 400;
+    if (kickVisualRadius >= 200) {
+      kickVisualRadius = 200;
     }
   }
   // End of kick animation //
@@ -252,11 +246,11 @@ void draw() {
   // Start of snare animation //
   pushMatrix(); 
 
-  translate(160, height/2); 
+  translate(160, 500); 
   rotate(radians(snareVisualX)); //Change
   fill(#ffcba2, 255);
   rectMode(CENTER);
-  rect(0, 0, 190, 190); 
+  rect(0, 0, 150, 150); 
 
   if (snareVisual == true) {
     snareVisualX += 15;
@@ -275,10 +269,8 @@ void draw() {
 
   fill(#f8a393, 255);
 
-  //arc(1030, hatVisualY, 300, 50, PI, TWO_PI, CHORD);
-  //arc(1030, hatVisual1Y, 300, 50, 0, PI, CHORD);
-  rect(1117,hatVisualY-20,255,50);
-  rect(1117,hatVisual1Y+20,255,50);
+  rect(1117, hatVisualY-20, 200, 50);
+  rect(1117, hatVisual1Y+20, 200, 50);
 
   if (hatVisual == true) {
 
@@ -288,13 +280,13 @@ void draw() {
       hatVisualY-=1;
     }
 
-    if (hatVisualY >= 358) {
-      hatVisualY = 358;
+    if (hatVisualY >= 185) {
+      hatVisualY = 185;
       hatMover = false;
     }
 
-    if (hatVisualY <= 343) {
-      hatVisualY = 343;
+    if (hatVisualY <= 170) {
+      hatVisualY = 170;
     }
 
     if (hat1Mover == true) {
@@ -303,25 +295,51 @@ void draw() {
       hatVisual1Y+=1;
     }
 
-    if (hatVisual1Y <= 358) {
-      hatVisual1Y = 358;
+    if (hatVisual1Y <= 185) {
+      hatVisual1Y = 185;
       hat1Mover = false;
     }
 
-    if (hatVisual1Y >= 373) {
-      hatVisual1Y = 373;
+    if (hatVisual1Y >= 200) {
+      hatVisual1Y = 200;
     }
   }
 
   // End of hat animation //
-  
+
   // Start of perc animation //
+
+
+  pushMatrix(); 
+
+  translate(1117, 500); 
+  rotate(radians(percVisualX)); //Change
+  fill(#ffa7d1, 255);
+  arc(0, 0, 200, 200, PI, TWO_PI);
+
+  if (percVisual == true) {
+    percVisualX += 20;
+
+    percVisualX *= 0.965;
+
+    if (percVisualX >= 405) {
+      percVisualX = 405;
+    }
+  } 
+
+  popMatrix();
   
+  pushMatrix();
   
+  translate(1117,500);
+  arc(0, 0, 200, 200, 0, PI);
   
+  popMatrix();
+
+
   // End of perc animation //
 
-  
+  tint(255, 255);
 
   for (int i = 0; i < 16; i++) {
 
@@ -338,7 +356,7 @@ void draw() {
   if (tempoCount == 160) {
     tempoCount = 0;
   }
-  
+
   slider.display();
   slider.move();
 }

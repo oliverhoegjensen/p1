@@ -34,11 +34,12 @@ class hatButtons {
     
     if (millis() - _visualTimer < 500) {
       _hatVisual=true;
-    } else { _hatVisual = false; }
+    }
   }
 
   void display() {
-    tint(255,180);
+    tint(255,255);
     image(_button, _x, _y);
+    tint(255,255);
   }
 }

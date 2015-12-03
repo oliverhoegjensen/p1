@@ -33,11 +33,12 @@ class kickButtons {
 
     if (millis() - _visualTimer < 500) {
       _kickVisual=true;
-    } else { _kickVisual = false; }
+    } 
   }
 
   void display() {
-    tint(255,180);
+    tint(255,255);
     image(_button, _x, _y);
+    tint(255,255);
   }
 }
