@@ -9,6 +9,8 @@ class percButtons {
   int _colB;
   int _tempoMark;
   int _visualTimer;
+  int _buttonAlpha = 0;
+  color _buttonCol;
   PImage _button;
   boolean _percVisual;
 
@@ -58,5 +60,11 @@ class percButtons {
     tint(255, 255);
     image(_button, _x, _y);
     tint(255, 255);
+  }
+   
+   void pushed(){
+    fill(_buttonCol, _buttonAlpha);
+    rectMode(CORNER);
+   rect(_x, _y, 35, 35); 
   }
 }

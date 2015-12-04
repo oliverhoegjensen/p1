@@ -9,8 +9,10 @@ class kickButtons {
   int _colB;
   int _tempoMark;
   int _visualTimer;
+  int _buttonAlpha = 0;
   PImage _button;
   boolean _kickVisual;
+  color _buttonCol;
 
   AudioPlayer _tone;
   AudioPlayer _tone2;
@@ -58,5 +60,11 @@ class kickButtons {
     tint(255, 255);
     image(_button, _x, _y);
     tint(255, 255);
+  }
+  
+   void pushed(){
+    fill(_buttonCol, _buttonAlpha);
+    rectMode(CORNER);
+   rect(_x, _y, 35, 35); 
   }
 }

@@ -319,6 +319,7 @@ void draw() {
 
     if (kicksPush[i] == true) {
       kicks[i].play();
+      kicks[i]._buttonCol = kick;
       if (kicks[i]._kickVisual == true) {
         kickVisual = true;
       }
@@ -326,6 +327,7 @@ void draw() {
 
     if (snaresPush[i] == true) {
       snares[i].play();
+      snares[i]._buttonCol = snare;
       if (snares[i]._snareVisual == true) {
         snareVisual = true;
       }
@@ -333,6 +335,7 @@ void draw() {
 
     if (hatsPush[i] == true) {
       hats[i].play();
+      hats[i]._buttonCol = hat;
       if (hats[i]._hatVisual == true) {
         hatVisual = true;
       }
@@ -340,6 +343,7 @@ void draw() {
 
     if (percsPush[i] == true) {
       percs[i].play();
+      percs[i]._buttonCol = perc;
       if (percs[i]._percVisual == true) {
         percVisual = true;
       }
@@ -469,6 +473,12 @@ void draw() {
     hats[i].display();
     percs[i].display();
 
+    kicks[i].pushed();
+    hats[i].pushed();
+    snares[i].pushed();
+    percs[i].pushed();
+
+
     for (int j = 0; j < 11; j++) {
       melodies[i][j].display();
     }
@@ -513,9 +523,10 @@ void mouseReleased() {
 
 
       if (kicksPush[i] == true) {
-        kicks[i]._button = colorButton1;
+        kicks[i]._buttonAlpha = 255;
       } else { 
         kicks[i]._button = standardButton;
+        kicks[i]._buttonAlpha = 0;
       }
     }
 
@@ -524,9 +535,10 @@ void mouseReleased() {
 
 
       if (snaresPush[i] == true) {
-        snares[i]._button = colorButton2;
+        snares[i]._buttonAlpha = 255;
       } else { 
         snares[i]._button = standardButton;
+        snares[i]._buttonAlpha = 0;
       }
     }
 
@@ -535,9 +547,11 @@ void mouseReleased() {
 
 
       if (hatsPush[i] == true) {
-        hats[i]._button = colorButton3;
+        hats[i]._buttonCol = hat;
+        hats[i]._buttonAlpha = 255;
       } else { 
         hats[i]._button = standardButton;
+        hats[i]._buttonAlpha = 0;
       }
     }
 
@@ -546,9 +560,10 @@ void mouseReleased() {
 
 
       if (percsPush[i] == true) {
-        percs[i]._button = colorButton4;
+        percs[i]._buttonAlpha = 255;
       } else { 
         percs[i]._button = standardButton;
+        percs[i]._buttonAlpha = 0;
       }
     }
 
