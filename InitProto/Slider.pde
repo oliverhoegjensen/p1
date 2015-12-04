@@ -22,7 +22,7 @@ class Slider {
   }
   
   void move(){
-    _x += 2;
+    _x += 4;
     if(_x >= 956){
       _x = 316;
     }

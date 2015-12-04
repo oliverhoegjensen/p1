@@ -1,4 +1,4 @@
-import ddf.minim.*;  //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>//
+import ddf.minim.*;  //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>//
 import ddf.minim.analysis.*;
 import ddf.minim.effects.*;
 import ddf.minim.signals.*;
@@ -260,9 +260,9 @@ void setup() {
       //melodies[i][j]._alpha = alphaAmount;    BGAlpha
       melodies[i][j]._tint = melodyTint;
       melodies[i][j]._tint1 = melodyTint1;
-        melodyTint-=10;
-        melodyTint1-=25;
-      
+      melodyTint-=10;
+      melodyTint1-=25;
+
 
       yPos += 40;
       //alphaAmount -= 10;   BGAlpha
@@ -283,33 +283,33 @@ void draw() {
   //fill(255, BGAlpha);   BGAlpha
   //rect(0, 0, 1280, 720);   BGAlpha 
 
-  tempoCount+=0.5;
+  tempoCount+=1;
 
-  if (soundsLibrary == 1) {
-    BG = #d9521f;
-    kick = #ff6c57;
-    snare = #8f4a2d;
-    hat = #e3be8d;
-    perc = #ffb5cc;
-    sliderCol = #fde128;
-  }
+  //if (soundsLibrary == 1) {
+  // BG = #d9521f;
+  // kick = #ff6c57;
+  // snare = #8f4a2d;
+  // hat = #e3be8d;
+  // perc = #ffb5cc;
+  // sliderCol = #fde128;
+  //}
 
-  if (soundsLibrary == 2) {
-    BG = #270636;
-    kick = #8566c1;
-    snare = #34fffd;
-    hat = #621084;
-    perc = #fc19f6;
-    sliderCol = #1feb4a;
-  }
-  if (soundsLibrary == 3) {
-    BG = #a38d74;
-    kick = #b5b5b5;
-    snare = #ffc5d7;
-    hat = #e34f0c;
-    perc = #96ac6f;
-    sliderCol = #b9b9ff;
-  }
+  //if (soundsLibrary == 2) {
+  // BG = #270636;
+  // kick = #8566c1;
+  // snare = #34fffd;
+  // hat = #621084;
+  // perc = #fc19f6;
+  // sliderCol = #1feb4a;
+  //}
+  //if (soundsLibrary == 3) {
+  // BG = #a38d74;
+  // kick = #b5b5b5;
+  // snare = #ffc5d7;
+  // hat = #e34f0c;
+  // perc = #96ac6f;
+  // sliderCol = #b9b9ff;
+  //}
 
 
 
@@ -507,6 +507,32 @@ void mouseReleased() {
     if (drumsLibrary == 4) {
       drumsLibrary = 1;
     }
+
+    if (soundsLibrary == 1) {
+      BG = #d9521f;
+      kick = #ff6c57;
+      snare = #8f4a2d;
+      hat = #e3be8d;
+      perc = #ffb5cc;
+      sliderCol = #fde128;
+    }
+
+    if (soundsLibrary == 2) {
+      BG = #270636;
+      kick = #8566c1;
+      snare = #34fffd;
+      hat = #621084;
+      perc = #fc19f6;
+      sliderCol = #1feb4a;
+    }
+    if (soundsLibrary == 3) {
+      BG = #a38d74;
+      kick = #b5b5b5;
+      snare = #ffc5d7;
+      hat = #e34f0c;
+      perc = #96ac6f;
+      sliderCol = #b9b9ff;
+    }
   }
 
   if (mouseX >= 278 && mouseX <= 317 && mouseY >= 204 && mouseY <= 318) {
@@ -518,6 +544,32 @@ void mouseReleased() {
     if (drumsLibrary == 0) {
       drumsLibrary = 3;
     }
+    
+    if (soundsLibrary == 1) {
+   BG = #d9521f;
+   kick = #ff6c57;
+   snare = #8f4a2d;
+   hat = #e3be8d;
+   perc = #ffb5cc;
+   sliderCol = #fde128;
+  }
+
+  if (soundsLibrary == 2) {
+   BG = #270636;
+   kick = #8566c1;
+   snare = #34fffd;
+   hat = #621084;
+   perc = #fc19f6;
+   sliderCol = #1feb4a;
+  }
+  if (soundsLibrary == 3) {
+   BG = #a38d74;
+   kick = #b5b5b5;
+   snare = #ffc5d7;
+   hat = #e34f0c;
+   perc = #96ac6f;
+   sliderCol = #b9b9ff;
+  }
   }
 
   //eventuelt lav function til dette i class'en
