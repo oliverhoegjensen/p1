@@ -7,60 +7,60 @@ import ddf.minim.ugens.*; //
 
 Minim minim;
 
-AudioPlayer kickSound;
-AudioPlayer snareSound;
-AudioPlayer hatSound;
-AudioPlayer percSound;
+AudioSample kickSound;
+AudioSample snareSound;
+AudioSample hatSound;
+AudioSample percSound;
 
-AudioPlayer kickSound2;
-AudioPlayer snareSound2;
-AudioPlayer hatSound2;
-AudioPlayer percSound2;
+AudioSample kickSound2;
+AudioSample snareSound2;
+AudioSample hatSound2;
+AudioSample percSound2;
 
-AudioPlayer kickSound3;
-AudioPlayer snareSound3;
-AudioPlayer hatSound3;
-AudioPlayer percSound3;
+AudioSample kickSound3;
+AudioSample snareSound3;
+AudioSample hatSound3;
+AudioSample percSound3;
 
 
 //pad objects
-AudioPlayer p1;
-AudioPlayer p2;
-AudioPlayer p3;
-AudioPlayer p4;
-AudioPlayer p5;
-AudioPlayer p6;
-AudioPlayer p7;
-AudioPlayer p8;
-AudioPlayer p9;
-AudioPlayer p10;
-AudioPlayer p11;
+AudioSample p1;
+AudioSample p2;
+AudioSample p3;
+AudioSample p4;
+AudioSample p5;
+AudioSample p6;
+AudioSample p7;
+AudioSample p8;
+AudioSample p9;
+AudioSample p10;
+AudioSample p11;
 
 //Synth objects
-AudioPlayer d1;
-AudioPlayer d2;
-AudioPlayer d3;
-AudioPlayer d4;
-AudioPlayer d5;
-AudioPlayer d6;
-AudioPlayer d7;
-AudioPlayer d8;
-AudioPlayer d9;
-AudioPlayer d10;
-AudioPlayer d11;
+AudioSample d1;
+AudioSample d2;
+AudioSample d3;
+AudioSample d4;
+AudioSample d5;
+AudioSample d6;
+AudioSample d7;
+AudioSample d8;
+AudioSample d9;
+AudioSample d10;
+AudioSample d11;
 
 //Piano objects
-AudioPlayer k1;
-AudioPlayer k2;
-AudioPlayer k3;
-AudioPlayer k4;
-AudioPlayer k5;
-AudioPlayer k6;
-AudioPlayer k7;
-AudioPlayer k8;
-AudioPlayer k9;
-AudioPlayer k10;
-AudioPlayer k11;
+AudioSample k1;
+AudioSample k2;
+AudioSample k3;
+AudioSample k4;
+AudioSample k5;
+AudioSample k6;
+AudioSample k7;
+AudioSample k8;
+AudioSample k9;
+AudioSample k10;
+AudioSample k11;
 
 
 PImage standardButton;
@@ -142,68 +142,68 @@ void setup() {
 
   minim = new Minim(this);
 
-  kickSound = minim.loadFile("kick.wav");
-  snareSound = minim.loadFile("snare.wav");
-  hatSound = minim.loadFile("hat.wav");
-  percSound = minim.loadFile("perc.wav");
+  kickSound = minim.loadSample("kick.wav");
+  snareSound = minim.loadSample("snare.wav");
+  hatSound = minim.loadSample("hat.wav");
+  percSound = minim.loadSample("perc.wav");
 
-  kickSound2 = minim.loadFile("kick2.wav");
-  snareSound2 = minim.loadFile("snare2.wav");
-  hatSound2 = minim.loadFile("hat2.wav");
-  percSound2 = minim.loadFile("perc2.wav");
+  kickSound2 = minim.loadSample("kick2.wav");
+  snareSound2 = minim.loadSample("snare2.wav");
+  hatSound2 = minim.loadSample("hat2.wav");
+  percSound2 = minim.loadSample("perc2.wav");
 
-  kickSound3 = minim.loadFile("kick3.wav");
-  snareSound3 = minim.loadFile("snare3.wav");
-  hatSound3 = minim.loadFile("hat3.wav");
-  percSound3 = minim.loadFile("perc3.wav");
+  kickSound3 = minim.loadSample("kick3.wav");
+  snareSound3 = minim.loadSample("snare3.wav");
+  hatSound3 = minim.loadSample("hat3.wav");
+  percSound3 = minim.loadSample("perc3.wav");
 
   slider = new Slider();
 
   //Pad sounds
-  p1 = minim.loadFile("b1.wav");
-  p2 = minim.loadFile("b2.wav");
-  p3 = minim.loadFile("b3.wav");
-  p4 = minim.loadFile("b4.wav");
-  p5 = minim.loadFile("b5.wav");
-  p6 = minim.loadFile("b6.wav");
-  p7 = minim.loadFile("b7.wav");
-  p8 = minim.loadFile("b8.wav");
-  p9 = minim.loadFile("b9.wav");
-  p10 = minim.loadFile("b10.wav");
-  p11 = minim.loadFile("b11.wav");
+  p1 = minim.loadSample("b1.wav");
+  p2 = minim.loadSample("b2.wav");
+  p3 = minim.loadSample("b3.wav");
+  p4 = minim.loadSample("b4.wav");
+  p5 = minim.loadSample("b5.wav");
+  p6 = minim.loadSample("b6.wav");
+  p7 = minim.loadSample("b7.wav");
+  p8 = minim.loadSample("b8.wav");
+  p9 = minim.loadSample("b9.wav");
+  p10 = minim.loadSample("b10.wav");
+  p11 = minim.loadSample("b11.wav");
 
   //Synth sounds
-  d1 = minim.loadFile("s1.wav");
-  d2 = minim.loadFile("s2.wav");
-  d3 = minim.loadFile("s3.wav");
-  d4 = minim.loadFile("s4.wav");
-  d5 = minim.loadFile("s5.wav");
-  d6 = minim.loadFile("s6.wav");
-  d7 = minim.loadFile("s7.wav");
-  d8 = minim.loadFile("s8.wav");
-  d9 = minim.loadFile("s9.wav");
-  d10 = minim.loadFile("s10.wav");
-  d11 = minim.loadFile("s11.wav");
+  d1 = minim.loadSample("s1.wav");
+  d2 = minim.loadSample("s2.wav");
+  d3 = minim.loadSample("s3.wav");
+  d4 = minim.loadSample("s4.wav");
+  d5 = minim.loadSample("s5.wav");
+  d6 = minim.loadSample("s6.wav");
+  d7 = minim.loadSample("s7.wav");
+  d8 = minim.loadSample("s8.wav");
+  d9 = minim.loadSample("s9.wav");
+  d10 = minim.loadSample("s10.wav");
+  d11 = minim.loadSample("s11.wav");
 
   //Piano sounds
-  k1 = minim.loadFile("v1.wav");
-  k2 = minim.loadFile("v2.wav");
-  k3 = minim.loadFile("v3.wav");
-  k4 = minim.loadFile("v4.wav");
-  k5 = minim.loadFile("v5.wav");
-  k6 = minim.loadFile("v6.wav");
-  k7 = minim.loadFile("v7.wav");
-  k8 = minim.loadFile("v8.wav");
-  k9 = minim.loadFile("v9.wav");
-  k10 = minim.loadFile("v10.wav");
-  k11 = minim.loadFile("v11.wav");  
+  k1 = minim.loadSample("v1.wav");
+  k2 = minim.loadSample("v2.wav");
+  k3 = minim.loadSample("v3.wav");
+  k4 = minim.loadSample("v4.wav");
+  k5 = minim.loadSample("v5.wav");
+  k6 = minim.loadSample("v6.wav");
+  k7 = minim.loadSample("v7.wav");
+  k8 = minim.loadSample("v8.wav");
+  k9 = minim.loadSample("v9.wav");
+  k10 = minim.loadSample("v10.wav");
+  k11 = minim.loadSample("v11.wav");  
 
 
-  AudioPlayer[] melodySounds = {p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11};
+  AudioSample[] melodySounds = {p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11};
 
-  AudioPlayer[] melodySounds2 = {d1, d2, d3, d4, d5, d6, d7, d8, d9, d10, d11};
+  AudioSample[] melodySounds2 = {d1, d2, d3, d4, d5, d6, d7, d8, d9, d10, d11};
 
-  AudioPlayer[] melodySounds3 = {k1, k2, k3, k4, k5, k6, k7, k8, k9, k10, k11};
+  AudioSample[] melodySounds3 = {k1, k2, k3, k4, k5, k6, k7, k8, k9, k10, k11};
 
   for (int i = 0; i < 16; i++) {
 

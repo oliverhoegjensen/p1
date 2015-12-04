@@ -10,9 +10,9 @@ class kickButtons {
   boolean _kickVisual;
   color _buttonCol;
 
-  AudioPlayer _tone;
-  AudioPlayer _tone2;
-  AudioPlayer _tone3;
+  AudioSample _tone;
+  AudioSample _tone2;
+  AudioSample _tone3;
 
   kickButtons() {
     _y = 523;
@@ -24,22 +24,19 @@ class kickButtons {
   void play() {
     if (tempoCount == _tempoMark) { 
       if (soundsLibrary == 1) {
-        _tone.rewind();
-        _tone.play();
+        _tone.trigger();
         kickVisualRadius = 0;
         _kickVisual=true;
       }
 
       if (soundsLibrary == 2) {
-        _tone2.rewind();
-        _tone2.play();
+        _tone2.trigger();
         kickVisualRadius = 0;
         _kickVisual=true;
       }
 
       if (soundsLibrary == 3) {
-        _tone3.rewind();
-        _tone3.play();
+        _tone3.trigger();
         kickVisualRadius = 0;
         _kickVisual=true;
       }
