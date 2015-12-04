@@ -4,11 +4,7 @@ class hatButtons {
   int _y; 
   int _width;
   int _height;
-  int _colR;
-  int _colG;
-  int _colB;
   int _tempoMark;
-  int _visualTimer;
   int _buttonAlpha = 0;
   color _buttonCol;
   PImage _button;
@@ -19,9 +15,6 @@ class hatButtons {
   AudioPlayer _tone3;
 
   hatButtons() {
-    _colR = 0;
-    _colG = 0;
-    _colB = 0;
     _y = 603;
     _height = 35;
     _width = 35;
@@ -30,39 +23,34 @@ class hatButtons {
 
   void play() {
     if (tempoCount == _tempoMark) { 
-      if (drumsLibrary == 1) {
+      if (soundsLibrary == 1) {
         _tone.rewind();
         _tone.play();
         hatMover = true;
         hat1Mover = true;
         _hatVisual=true;
-        println("hat 1");
       }
 
-      if (drumsLibrary == 2) {
+      if (soundsLibrary == 2) {
         _tone2.rewind();
         _tone2.play();
         hatMover = true;
         hat1Mover = true;
         _hatVisual=true;
-        println("hat 2");
       }
 
-      if (drumsLibrary == 3) {
+      if (soundsLibrary == 3) {
         _tone3.rewind();
         _tone3.play();
         hatMover = true;
         hat1Mover = true;
         _hatVisual=true;
-        println("hat 3");
       }
     }
   }
 
   void display() {
-    tint(255, 255);
     image(_button, _x, _y);
-    tint(255, 255);
   }
 
   void pushed() {

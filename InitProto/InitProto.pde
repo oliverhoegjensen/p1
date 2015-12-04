@@ -1,4 +1,4 @@
-import ddf.minim.*;  //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>//
+import ddf.minim.*;  //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>//
 import ddf.minim.analysis.*;
 import ddf.minim.effects.*;
 import ddf.minim.signals.*;
@@ -6,8 +6,6 @@ import ddf.minim.spi.*;
 import ddf.minim.ugens.*; //
 
 Minim minim;
-Minim minim1;
-Minim minim2;
 
 AudioPlayer kickSound;
 AudioPlayer snareSound;
@@ -71,10 +69,6 @@ PImage colorButton2;
 PImage colorButton3;
 PImage colorButton4;
 PImage colorButton5;
-PImage colorButton5_2;
-PImage colorButton5_3;
-PImage glowButton;
-PImage gridOverlay;
 PImage gridGuidanceDrums;
 PImage arrows;
 
@@ -115,7 +109,6 @@ int tempoMark = 1;
 int kickAlpha = 255;
 
 byte soundsLibrary = 1;
-byte drumsLibrary = 1;
 
 color BG = #d9521f;
 color kick = #ff6c57;
@@ -144,16 +137,10 @@ void setup() {
   colorButton3 = loadImage("button_colored_3.png");
   colorButton4 = loadImage("button_colored_4.png");
   colorButton5 = loadImage("button_colored_5.png");
-  colorButton5_2 = loadImage("button_colored_5_2.png");
-  colorButton5_3 = loadImage("button_colored_5_3.png");
-  glowButton = loadImage("button_glow.png");
-  gridOverlay = loadImage("grid_overlay.png");
   gridGuidanceDrums = loadImage("grid_guidance_drums.png");
   arrows = loadImage("arrows.png");
 
   minim = new Minim(this);
-  minim1 = new Minim(this);
-  minim2 = new Minim(this);
 
   kickSound = minim.loadFile("kick.wav");
   snareSound = minim.loadFile("snare.wav");
@@ -186,30 +173,30 @@ void setup() {
   p11 = minim.loadFile("b11.wav");
 
   //Synth sounds
-  d1 = minim1.loadFile("s1.wav");
-  d2 = minim1.loadFile("s2.wav");
-  d3 = minim1.loadFile("s3.wav");
-  d4 = minim1.loadFile("s4.wav");
-  d5 = minim1.loadFile("s5.wav");
-  d6 = minim1.loadFile("s6.wav");
-  d7 = minim1.loadFile("s7.wav");
-  d8 = minim1.loadFile("s8.wav");
-  d9 = minim1.loadFile("s9.wav");
-  d10 = minim1.loadFile("s10.wav");
-  d11 = minim1.loadFile("s11.wav");
+  d1 = minim.loadFile("s1.wav");
+  d2 = minim.loadFile("s2.wav");
+  d3 = minim.loadFile("s3.wav");
+  d4 = minim.loadFile("s4.wav");
+  d5 = minim.loadFile("s5.wav");
+  d6 = minim.loadFile("s6.wav");
+  d7 = minim.loadFile("s7.wav");
+  d8 = minim.loadFile("s8.wav");
+  d9 = minim.loadFile("s9.wav");
+  d10 = minim.loadFile("s10.wav");
+  d11 = minim.loadFile("s11.wav");
 
   //Piano sounds
-  k1 = minim2.loadFile("v1.wav");
-  k2 = minim2.loadFile("v2.wav");
-  k3 = minim2.loadFile("v3.wav");
-  k4 = minim2.loadFile("v4.wav");
-  k5 = minim2.loadFile("v5.wav");
-  k6 = minim2.loadFile("v6.wav");
-  k7 = minim2.loadFile("v7.wav");
-  k8 = minim2.loadFile("v8.wav");
-  k9 = minim2.loadFile("v9.wav");
-  k10 = minim2.loadFile("v10.wav");
-  k11 = minim2.loadFile("v11.wav");  
+  k1 = minim.loadFile("v1.wav");
+  k2 = minim.loadFile("v2.wav");
+  k3 = minim.loadFile("v3.wav");
+  k4 = minim.loadFile("v4.wav");
+  k5 = minim.loadFile("v5.wav");
+  k6 = minim.loadFile("v6.wav");
+  k7 = minim.loadFile("v7.wav");
+  k8 = minim.loadFile("v8.wav");
+  k9 = minim.loadFile("v9.wav");
+  k10 = minim.loadFile("v10.wav");
+  k11 = minim.loadFile("v11.wav");  
 
 
   AudioPlayer[] melodySounds = {p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11};
@@ -257,15 +244,13 @@ void setup() {
       melodies[i][j]._tone = melodySounds[j];
       melodies[i][j]._tone2 = melodySounds2[j];
       melodies[i][j]._tone3 = melodySounds3[j];
-      //melodies[i][j]._alpha = alphaAmount;    BGAlpha
       melodies[i][j]._tint = melodyTint;
       melodies[i][j]._tint1 = melodyTint1;
+
       melodyTint-=10;
       melodyTint1-=25;
 
-
       yPos += 40;
-      //alphaAmount -= 10;   BGAlpha
     }
 
     tempoMark += 10;
@@ -273,45 +258,14 @@ void setup() {
     yPos=43;
     melodyTint = 255;
     melodyTint1 = 255;
-    //alphaAmount = 110;   BGAlpha
   }
 }
 
 void draw() {
 
   background(BG);
-  //fill(255, BGAlpha);   BGAlpha
-  //rect(0, 0, 1280, 720);   BGAlpha 
 
   tempoCount+=1;
-
-  //if (soundsLibrary == 1) {
-  // BG = #d9521f;
-  // kick = #ff6c57;
-  // snare = #8f4a2d;
-  // hat = #e3be8d;
-  // perc = #ffb5cc;
-  // sliderCol = #fde128;
-  //}
-
-  //if (soundsLibrary == 2) {
-  // BG = #270636;
-  // kick = #8566c1;
-  // snare = #34fffd;
-  // hat = #621084;
-  // perc = #fc19f6;
-  // sliderCol = #1feb4a;
-  //}
-  //if (soundsLibrary == 3) {
-  // BG = #a38d74;
-  // kick = #b5b5b5;
-  // snare = #ffc5d7;
-  // hat = #e34f0c;
-  // perc = #96ac6f;
-  // sliderCol = #b9b9ff;
-  //}
-
-
 
   for (int i = 0; i < 16; i++) {
 
@@ -435,7 +389,6 @@ void draw() {
 
   // Start of perc animation //
 
-
   pushMatrix(); 
 
   translate(1140, 500); 
@@ -462,13 +415,9 @@ void draw() {
 
   popMatrix();
 
-
   // End of perc animation //
 
-  tint(255, 255);
-
   image(gridGuidanceDrums, 0, 0);
-
   image(arrows, 0, 0);
 
   for (int i = 0; i < 16; i++) {
@@ -482,7 +431,6 @@ void draw() {
     hats[i].pushed();
     snares[i].pushed();
     percs[i].pushed();
-
 
     for (int j = 0; j < 11; j++) {
       melodies[i][j].display();
@@ -502,10 +450,6 @@ void mouseReleased() {
     soundsLibrary ++;
     if (soundsLibrary == 4) {
       soundsLibrary = 1;
-    }
-    drumsLibrary ++;
-    if (drumsLibrary == 4) {
-      drumsLibrary = 1;
     }
 
     if (soundsLibrary == 1) {
@@ -540,39 +484,34 @@ void mouseReleased() {
     if (soundsLibrary == 0) {
       soundsLibrary = 3;
     }
-    drumsLibrary --;
-    if (drumsLibrary == 0) {
-      drumsLibrary = 3;
-    }
-    
+
     if (soundsLibrary == 1) {
-   BG = #d9521f;
-   kick = #ff6c57;
-   snare = #8f4a2d;
-   hat = #e3be8d;
-   perc = #ffb5cc;
-   sliderCol = #fde128;
+      BG = #d9521f;
+      kick = #ff6c57;
+      snare = #8f4a2d;
+      hat = #e3be8d;
+      perc = #ffb5cc;
+      sliderCol = #fde128;
+    }
+
+    if (soundsLibrary == 2) {
+      BG = #270636;
+      kick = #8566c1;
+      snare = #34fffd;
+      hat = #621084;
+      perc = #fc19f6;
+      sliderCol = #1feb4a;
+    }
+    if (soundsLibrary == 3) {
+      BG = #a38d74;
+      kick = #b5b5b5;
+      snare = #ffc5d7;
+      hat = #e34f0c;
+      perc = #96ac6f;
+      sliderCol = #b9b9ff;
+    }
   }
 
-  if (soundsLibrary == 2) {
-   BG = #270636;
-   kick = #8566c1;
-   snare = #34fffd;
-   hat = #621084;
-   perc = #fc19f6;
-   sliderCol = #1feb4a;
-  }
-  if (soundsLibrary == 3) {
-   BG = #a38d74;
-   kick = #b5b5b5;
-   snare = #ffc5d7;
-   hat = #e34f0c;
-   perc = #96ac6f;
-   sliderCol = #b9b9ff;
-  }
-  }
-
-  //eventuelt lav function til dette i class'en
   for (int i = 0; i < 16; i++) {
 
     if (mouseX > kicks[i]._x && mouseX < kicks[i]._x + kicks[i]._width && mouseY > kicks[i]._y && mouseY < kicks[i]._y+kicks[i]._height) {
