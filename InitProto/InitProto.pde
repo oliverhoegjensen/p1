@@ -1,4 +1,4 @@
-import ddf.minim.*;  //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>//
+import ddf.minim.*;  //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>//
 import ddf.minim.analysis.*;
 import ddf.minim.effects.*;
 import ddf.minim.signals.*;
@@ -130,7 +130,7 @@ void setup() {
   size(1280, 720);
   frameRate(60);
   noStroke();
-  noCursor();
+  //noCursor();
 
   standardButton = loadImage("button_standard.png");
   colorButton1 = loadImage("button_colored_1.png");
