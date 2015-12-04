@@ -127,9 +127,10 @@ melodyButtons[][] melodies = new melodyButtons[16][11];
 Slider slider; 
 
 void setup() {
-  size(1280, 720, P2D);
+  size(1280, 720);
   frameRate(60);
   noStroke();
+  noCursor();
 
   standardButton = loadImage("button_standard.png");
   colorButton1 = loadImage("button_colored_1.png");
