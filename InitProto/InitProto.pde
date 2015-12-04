@@ -145,7 +145,7 @@ void setup() {
   glowButton = loadImage("button_glow.png");
   gridOverlay = loadImage("grid_overlay.png");
   gridGuidanceDrums = loadImage("grid_guidance_drums.png");
-  arrows = loadImage("arrowscopy.png");
+  arrows = loadImage("arrows.png");
 
   minim = new Minim(this);
   minim1 = new Minim(this);
@@ -278,7 +278,7 @@ void draw() {
   //fill(255, BGAlpha);   BGAlpha
   //rect(0, 0, 1280, 720);   BGAlpha 
 
-  tempoCount+=1;
+  tempoCount+=0.5;
 
   if (soundsLibrary == 1) {
     BG = #d9521f;
@@ -488,6 +488,10 @@ void mouseReleased() {
     if (soundsLibrary == 4) {
       soundsLibrary = 1;
     }
+    drumsLibrary ++;
+    if (drumsLibrary == 4) {
+      drumsLibrary = 1;
+    }
   }
 
   if (mouseX >= 278 && mouseX <= 317 && mouseY >= 204 && mouseY <= 318) {
@@ -495,16 +499,6 @@ void mouseReleased() {
     if (soundsLibrary == 0) {
       soundsLibrary = 3;
     }
-  }
-
-  if (mouseX >= 963 && mouseX <= 1003 && mouseY >= 564 && mouseY <= 638) {
-    drumsLibrary ++;
-    if (drumsLibrary == 4) {
-      drumsLibrary = 1;
-    }
-  }
-
-  if (mouseX >= 278 && mouseX <= 317 && mouseY >= 564 && mouseY <= 638) {
     drumsLibrary --;
     if (drumsLibrary == 0) {
       drumsLibrary = 3;
