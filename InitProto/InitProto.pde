@@ -71,6 +71,8 @@ PImage colorButton2;
 PImage colorButton3;
 PImage colorButton4;
 PImage colorButton5;
+PImage colorButton5_2;
+PImage colorButton5_3;
 PImage glowButton;
 PImage gridOverlay;
 PImage gridGuidanceDrums;
@@ -142,6 +144,8 @@ void setup() {
   colorButton3 = loadImage("button_colored_3.png");
   colorButton4 = loadImage("button_colored_4.png");
   colorButton5 = loadImage("button_colored_5.png");
+  colorButton5_2 = loadImage("button_colored_5_2.png");
+  colorButton5_3 = loadImage("button_colored_5_3.png");
   glowButton = loadImage("button_glow.png");
   gridOverlay = loadImage("grid_overlay.png");
   gridGuidanceDrums = loadImage("grid_guidance_drums.png");
@@ -256,8 +260,9 @@ void setup() {
       //melodies[i][j]._alpha = alphaAmount;    BGAlpha
       melodies[i][j]._tint = melodyTint;
       melodies[i][j]._tint1 = melodyTint1;
-      melodyTint-=20;
-      melodyTint1-=5;
+        melodyTint-=10;
+        melodyTint1-=25;
+      
 
       yPos += 40;
       //alphaAmount -= 10;   BGAlpha

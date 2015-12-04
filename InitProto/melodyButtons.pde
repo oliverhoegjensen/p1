@@ -59,9 +59,22 @@ class melodyButtons {
 
   void display() {
 
+    if(soundsLibrary ==1){
+    if (_colorChange == true) {
+      tint(255, _tint, _tint1, 255);
+    }
+    }
+    if(soundsLibrary ==2){
     if (_colorChange == true) {
       tint(_tint, _tint1, 255, 255);
     }
+    }
+    if(soundsLibrary ==3){
+    if (_colorChange == true) {
+      tint(_tint, 255, _tint1, 255);
+    }
+    }
+    
 
     image(_button, _x, _y);
     tint(255, 255);
