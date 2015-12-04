@@ -192,7 +192,7 @@ void setup() {
   d8 = minim1.loadFile("s8.wav");
   d9 = minim1.loadFile("s9.wav");
   d10 = minim1.loadFile("s10.wav");
-  d11 = minim1.loadFile("b11.wav");
+  d11 = minim1.loadFile("s11.wav");
 
   //Piano sounds
   k1 = minim2.loadFile("v1.wav");
