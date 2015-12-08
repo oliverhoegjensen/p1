@@ -263,6 +263,8 @@ void setup() {
     melodyTint = 255;
     melodyTint1 = 255;
   }
+  
+  sliderCol = #fde128;
 }
 
 void draw() {
