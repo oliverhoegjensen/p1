@@ -79,7 +79,15 @@ boolean[] percsPush = new boolean[16];
 
 boolean[][] melodyPush = new boolean [16][11];
 
+<<<<<<< HEAD
 float snareVisualX = 405;
+=======
+boolean kickVisual;
+boolean snareVisual;
+boolean hatVisual;
+boolean percVisual;
+boolean halfTempo;
+>>>>>>> origin/master
 
 float percVisualX = 405;
 
@@ -110,6 +118,8 @@ color snare = #8f4a2d;
 color hat = #e3be8d;
 color perc = #ff7e8a;
 color sliderCol = #ffffff;
+
+float tempoSpeed = 1;
 
 kickButtons[] kicks = new kickButtons[16];
 snareButtons[] snares = new snareButtons[16];
@@ -254,13 +264,15 @@ void setup() {
     melodyTint = 255;
     melodyTint1 = 255;
   }
+  
+  sliderCol = #fde128;
 }
 
 void draw() {
 
   background(BG);
 
-  tempoCount+=1;
+  tempoCount+=tempoSpeed;
 
   for (int i = 0; i < 16; i++) {
 
@@ -410,12 +422,16 @@ void draw() {
     }
   }
 
-  if (tempoCount == 160) {
+  if (tempoCount >= 160) {
     tempoCount = 0;
   }
 
   slider.display();
   slider.move();
+  
+  if (halfTempo == true){
+   tempoSpeed = 0.5; 
+  } else { tempoSpeed = 1; }
 }
 
 void mouseReleased() {
@@ -550,4 +566,13 @@ void mouseReleased() {
       }
     }
   }
+}
+
+void keyReleased(){
+   if(key == 32){
+     halfTempo = !halfTempo;
+     tempoCount = 0;
+     slider._x = 316;
+     
+   }
 }
