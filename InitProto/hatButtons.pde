@@ -8,7 +8,6 @@ class hatButtons {
   int _buttonAlpha = 0;
   color _buttonCol;
   PImage _button;
-  boolean _hatVisual;
 
   AudioSample _tone;
   AudioSample _tone2;
@@ -27,21 +26,18 @@ class hatButtons {
         _tone.trigger();
         hatMover = true;
         hat1Mover = true;
-        _hatVisual=true;
       }
 
       if (soundsLibrary == 2) {
         _tone2.trigger();
         hatMover = true;
         hat1Mover = true;
-        _hatVisual=true;
       }
 
       if (soundsLibrary == 3) {
         _tone3.trigger();
         hatMover = true;
         hat1Mover = true;
-        _hatVisual=true;
       }
     }
   }

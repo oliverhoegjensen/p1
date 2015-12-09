@@ -7,7 +7,6 @@ class kickButtons {
   int _tempoMark;
   int _buttonAlpha = 0;
   PImage _button;
-  boolean _kickVisual;
   color _buttonCol;
 
   AudioSample _tone;
@@ -26,19 +25,16 @@ class kickButtons {
       if (soundsLibrary == 1) {
         _tone.trigger();
         kickVisualRadius = 0;
-        _kickVisual=true;
       }
 
       if (soundsLibrary == 2) {
         _tone2.trigger();
         kickVisualRadius = 0;
-        _kickVisual=true;
       }
 
       if (soundsLibrary == 3) {
         _tone3.trigger();
         kickVisualRadius = 0;
-        _kickVisual=true;
       }
     }
   }

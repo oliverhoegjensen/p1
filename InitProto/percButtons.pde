@@ -8,7 +8,6 @@ class percButtons {
   int _buttonAlpha = 0;
   color _buttonCol;
   PImage _button;
-  boolean _percVisual;
 
   AudioSample _tone;
   AudioSample _tone2;
@@ -26,21 +25,18 @@ class percButtons {
       if (soundsLibrary == 1) {
         _tone.trigger();
         percVisualX = 45;
-        _percVisual=true;
         println("perc 1");
       }
 
       if (soundsLibrary == 2) {
         _tone2.trigger();
         percVisualX = 45;
-        _percVisual=true;
         println("perc 2");
       }
 
       if (soundsLibrary == 3) {
         _tone3.trigger();
         percVisualX = 45;
-        _percVisual=true;
         println("perc 3");
       }
     }

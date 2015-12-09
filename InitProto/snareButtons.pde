@@ -8,7 +8,6 @@ class snareButtons {
   int _buttonAlpha = 0;
   color _buttonCol;
   PImage _button;
-  boolean _snareVisual;
 
   AudioSample _tone;
   AudioSample _tone2;
@@ -25,19 +24,16 @@ class snareButtons {
     if (tempoCount == _tempoMark) { 
       if (soundsLibrary == 1) {
         _tone.trigger();
-        _snareVisual=true;
         snareVisualX = 45;
       }
 
       if (soundsLibrary == 2) {
         _tone2.trigger();
-        _snareVisual=true;
         snareVisualX = 45;
       }
 
       if (soundsLibrary == 3) {
         _tone3.trigger();
-        _snareVisual=true;
         snareVisualX = 45;
       }
     }
