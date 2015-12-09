@@ -79,14 +79,9 @@ boolean[] percsPush = new boolean[16];
 
 boolean[][] melodyPush = new boolean [16][11];
 
-boolean kickVisual;
-boolean snareVisual;
-boolean hatVisual;
-boolean percVisual;
+float snareVisualX = 405;
 
-float snareVisualX = 45;
-
-float percVisualX = 45;
+float percVisualX = 405;
 
 int hatVisualY = 170;
 int hatVisual1Y = 200;
@@ -98,7 +93,6 @@ float tempoCount = 0;
 //float alphaAmount = 110;   BGAlpha
 
 int kickVisualRadius = 200;
-int kickVisualTimer;
 
 int melodyTint = 255;
 int melodyTint1 = 255;
@@ -280,33 +274,21 @@ void draw() {
     if (kicksPush[i] == true) {
       kicks[i].play();
       kicks[i]._buttonCol = kick;
-      if (kicks[i]._kickVisual == true) {
-        kickVisual = true;
-      }
     }
 
     if (snaresPush[i] == true) {
       snares[i].play();
       snares[i]._buttonCol = snare;
-      if (snares[i]._snareVisual == true) {
-        snareVisual = true;
-      }
     }
 
     if (hatsPush[i] == true) {
       hats[i].play();
       hats[i]._buttonCol = hat;
-      if (hats[i]._hatVisual == true) {
-        hatVisual = true;
-      }
     }
 
     if (percsPush[i] == true) {
       percs[i].play();
       percs[i]._buttonCol = perc;
-      if (percs[i]._percVisual == true) {
-        percVisual = true;
-      }
     }
   }
 
@@ -314,14 +296,12 @@ void draw() {
   fill(kick, 255);
   ellipse(142, 220, kickVisualRadius, kickVisualRadius);
 
-  if (kickVisual == true) {
+  kickVisualRadius+=20;
 
-    kickVisualRadius+=20;
-
-    if (kickVisualRadius >= 200) {
-      kickVisualRadius = 200;
-    }
+  if (kickVisualRadius >= 200) {
+    kickVisualRadius = 200;
   }
+
   // End of kick animation //
 
   // Start of snare animation //
@@ -333,14 +313,12 @@ void draw() {
   rectMode(CENTER);
   rect(0, 0, 150, 150); 
 
-  if (snareVisual == true) {
-    snareVisualX += 15;
+  snareVisualX += 15;
 
-    snareVisualX *= 0.965;
+  snareVisualX *= 0.965;
 
-    if (snareVisualX >= 405) {
-      snareVisualX = 405;
-    }
+  if (snareVisualX >= 405) {
+    snareVisualX = 405;
   } 
 
   popMatrix();
@@ -353,37 +331,34 @@ void draw() {
   rect(1143, hatVisualY-20, 200, 50);
   rect(1143, hatVisual1Y+20, 200, 50);
 
-  if (hatVisual == true) {
+  if (hatMover == true) {
+    hatVisualY+=10;
+  } else { 
+    hatVisualY-=1;
+  }
 
-    if (hatMover == true) {
-      hatVisualY+=10;
-    } else { 
-      hatVisualY-=1;
-    }
+  if (hatVisualY >= 185) {
+    hatVisualY = 185;
+    hatMover = false;
+  }
 
-    if (hatVisualY >= 185) {
-      hatVisualY = 185;
-      hatMover = false;
-    }
+  if (hatVisualY <= 170) {
+    hatVisualY = 170;
+  }
 
-    if (hatVisualY <= 170) {
-      hatVisualY = 170;
-    }
+  if (hat1Mover == true) {
+    hatVisual1Y-=10;
+  } else { 
+    hatVisual1Y+=1;
+  }
 
-    if (hat1Mover == true) {
-      hatVisual1Y-=10;
-    } else { 
-      hatVisual1Y+=1;
-    }
+  if (hatVisual1Y <= 185) {
+    hatVisual1Y = 185;
+    hat1Mover = false;
+  }
 
-    if (hatVisual1Y <= 185) {
-      hatVisual1Y = 185;
-      hat1Mover = false;
-    }
-
-    if (hatVisual1Y >= 200) {
-      hatVisual1Y = 200;
-    }
+  if (hatVisual1Y >= 200) {
+    hatVisual1Y = 200;
   }
 
   // End of hat animation //
@@ -396,8 +371,6 @@ void draw() {
   rotate(radians(percVisualX)); //Change
   fill(perc, 255);
   arc(0, 0, 200, 200, PI, TWO_PI);
-
-  if (percVisual == true) {
     percVisualX += 20;
 
     percVisualX *= 0.965;
@@ -405,7 +378,6 @@ void draw() {
     if (percVisualX >= 405) {
       percVisualX = 405;
     }
-  } 
 
   popMatrix();
 
