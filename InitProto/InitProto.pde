@@ -79,15 +79,9 @@ boolean[] percsPush = new boolean[16];
 
 boolean[][] melodyPush = new boolean [16][11];
 
-<<<<<<< HEAD
 float snareVisualX = 405;
-=======
-boolean kickVisual;
-boolean snareVisual;
-boolean hatVisual;
-boolean percVisual;
+
 boolean halfTempo;
->>>>>>> origin/master
 
 float percVisualX = 405;
 
